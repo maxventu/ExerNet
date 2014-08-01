@@ -1,13 +1,33 @@
 ﻿<!DOCTYPE html>
+@using ThemeRes = Resources.Resource
 <html>
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title - Exercise Network</title>
-    @if(cookie["theme"]==''){  @Styles.Render("~/Content/darkcss")  }else{  @Styles.Render("~/Content/lightcss") }
+    @*@if (HttpContext.Current.Response["theme"] == "dark")
+    {  @Styles.Render("~/Content/darkcss")  }else{  @Styles.Render("~/Content/lightcss") }*@
  
     @Scripts.Render("~/bundles/modernizr")
-
+    @if (Request.Cookies["Theme"] == null)
+    {
+        @Styles.Render("~/Content/lightcss")
+    }
+    else
+    {
+        if (Request.Cookies["Theme"].Value == "dark")
+        {
+            @Styles.Render("~/Content/darkcss")
+        }
+        else
+        {
+            if (Request.Cookies["Theme"].Value == "light")
+        {
+            @Styles.Render("~/Content/lightcss")
+        }
+            else {@Styles.Render("~/Content/colorcss") }
+        }
+    }
 </head>
 <body>
     <div class="navbar navbar-inverse navbar-fixed-top">
@@ -20,20 +40,22 @@
                 </button>
                 @Html.ActionLink("ExerNet", "Index", "Home", null, new { @class = "navbar-brand" })
             </div>
-            <div class="btn-group">
-                <button type="button" class="btn btn-default">Theme</button>
-                <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown"><span class="caret"></span></button>
-                <ul class="dropdown-menu">
-                    <li><a href="#">Light</a></li>
-                    <li><a href="#">Dark</a></li>
-                    @if(coo){}
-                </ul>
-            </div>
+            
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
                     <li>@Html.ActionLink("Home", "Index", "Home")</li>
                     <li>@Html.ActionLink("About", "About", "Home")</li>
                     <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown">Theme<span class="caret"></span></a>
+                        
+                        @*<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown"><span class="caret"></span></button>*@
+                        <ul class="dropdown-menu">
+                            <li><a href="~/Culture/SetTheme?theme=light" rel="stylesheet">Light</a></li>
+                            <li><a href="~/Culture/SetTheme?theme=dark" rel="stylesheet">Dark</a></li>
+                            <li><a href="~/Culture/SetTheme?theme=color" rel="stylesheet">Colored</a></li>
+                        </ul>
+                    </li>
                 </ul>
                 @Html.Partial("_LoginPartial")
             </div>
@@ -46,19 +68,6 @@
             <p>&copy; @DateTime.Now.Year - Kalenik Maxim &amp; Dmitryi Zheltko</p>
         </footer>
     </div>
-
-    <div>
-        @using (Html.BeginForm("ChangeCulture", "Culture"))
-        {
-            <select name="lang">
-                <option disabled selected>@Resources.Resource.ChooseLang</option>
-                <option value="ru">Русский</option>
-                <option value="en">English</option>
-            </select>
-            <input type="submit" name="submit" value="@Resources.Resource.ChooseLang">
-        }
-    </div>
-
 
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
