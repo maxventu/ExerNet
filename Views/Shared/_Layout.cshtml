@@ -4,7 +4,8 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title - Exercise Network</title>
-    @Styles.Render("~/Content/css")
+    @if(cookie["theme"]==''){  @Styles.Render("~/Content/darkcss")  }else{  @Styles.Render("~/Content/lightcss") }
+ 
     @Scripts.Render("~/bundles/modernizr")
 
 </head>
@@ -18,6 +19,15 @@
                     <span class="icon-bar"></span>
                 </button>
                 @Html.ActionLink("ExerNet", "Index", "Home", null, new { @class = "navbar-brand" })
+            </div>
+            <div class="btn-group">
+                <button type="button" class="btn btn-default">Theme</button>
+                <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown"><span class="caret"></span></button>
+                <ul class="dropdown-menu">
+                    <li><a href="#">Light</a></li>
+                    <li><a href="#">Dark</a></li>
+                    @if(coo){}
+                </ul>
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
