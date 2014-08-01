@@ -37,6 +37,19 @@
         </footer>
     </div>
 
+    <div>
+        @using (Html.BeginForm("ChangeCulture", "Culture"))
+        {
+            <select name="lang">
+                <option disabled selected>@Resources.Resource.ChooseLang</option>
+                <option value="ru">Русский</option>
+                <option value="en">English</option>
+            </select>
+            <input type="submit" name="submit" value="@Resources.Resource.ChooseLang">
+        }
+    </div>
+
+
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)
