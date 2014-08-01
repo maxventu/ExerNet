@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using Exernet.Filters;
+//using Exernet.Filters;
 using Exernet.Models;
 
 namespace Exernet.Controllers
@@ -23,6 +23,7 @@ namespace Exernet.Controllers
                 lang = "ru";
             }
             // Сохраняем выбранную культуру в куки
+
             HttpCookie cookie = Request.Cookies["lang"];
             if (cookie != null)
                 cookie.Value = lang;   // если куки уже установлено, то обновляем значение
