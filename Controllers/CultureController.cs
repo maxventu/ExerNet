@@ -38,5 +38,24 @@ namespace Exernet.Controllers
             Response.Cookies.Add(cookie);
             return Redirect(returnUrl);
         }
+
+        public ActionResult SetTheme(string theme)
+        {
+            string returnUrl = Request.UrlReferrer.AbsolutePath;
+            HttpCookie cookie = Request.Cookies["Theme"];
+            if (cookie == null)
+            {
+                cookie = new HttpCookie("cookieValue");
+                cookie.Name = "Theme";
+                cookie.Value = theme;
+                this.ControllerContext.HttpContext.Response.Cookies.Add(cookie);
+            }
+            else
+            {
+                cookie.Value = theme;
+                this.ControllerContext.HttpContext.Response.Cookies.Set(cookie);
+            }
+            return Redirect(returnUrl);
+        }
     }
 }

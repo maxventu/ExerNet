@@ -29,6 +29,9 @@ namespace Exernet
             bundles.Add(new StyleBundle("~/Content/darkcss").Include(
                       "~/Content/bootstrap-superhero.css",
                       "~/Content/site.css"));
+            bundles.Add(new StyleBundle("~/Content/colorcss").Include(
+                      "~/Content/bootstrap-amelia.css",
+                      "~/Content/site.css"));
         }
     }
 }

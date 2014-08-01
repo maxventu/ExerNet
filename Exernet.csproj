@@ -201,6 +201,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="App_Themes\Light\default.css" />
+    <Content Include="Content\bootstrap-amelia.css" />
     <Content Include="Content\bootstrap-superhero.css" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
