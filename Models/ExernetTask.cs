@@ -6,7 +6,7 @@ using System.Web;
 
 namespace Exernet.Models
 {
-    public class Task
+    public class ExernetTask
     {
         public int Id { get; set; }
         public virtual ICollection<ApplicationUser> User { get; set; }

@@ -9,7 +9,7 @@ namespace Exernet.Models
     {
         public int Rating { get; set; }
         public virtual ICollection<Solution> Solutions { get; set; }
-        public virtual ICollection<Task> Tasks { get; set; }
+        public virtual ICollection<ExernetTask> Tasks { get; set; }
         public virtual ICollection<Like> Likes { get; set; }
         public virtual ICollection<Comment> Comments { get; set; }
     }

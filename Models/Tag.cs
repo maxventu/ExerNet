@@ -12,6 +12,6 @@ namespace Exernet.Models
         public int Id { get; set; }
         public string Text { get; set; }
         public int Rating { get; set; }
-        public virtual ICollection<Task> Tasks { get; set; }
+        public virtual ICollection<ExernetTask> Tasks { get; set; }
     }
 }

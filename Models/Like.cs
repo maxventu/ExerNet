@@ -12,7 +12,7 @@ namespace Exernet.Models
         [Key]
         public int Id { get; set; }
         [Required]
-        public Task Task { get; set; }
+        public ExernetTask Task { get; set; }
         [Required]
         public virtual ICollection<ApplicationUser> User { get; set; }
         [Required]

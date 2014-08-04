@@ -8,7 +8,7 @@ namespace Exernet.Models
     public class Answer
     {
         public int Id { get; set; }
-        public Task Task { get; set; }
+        public ExernetTask Task { get; set; }
         public string Text { get; set; }
     }
 }
