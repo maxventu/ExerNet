@@ -56,7 +56,7 @@ namespace Exernet.Controllers
                 }
                 else
                 {
-                    ModelState.AddModelError("", "Invalid username or password.");
+                    ModelState.AddModelError("", Resources.Resource.InvalidData);
                 }
             }
 
@@ -122,10 +122,10 @@ namespace Exernet.Controllers
         public ActionResult Manage(ManageMessageId? message)
         {
             ViewBag.StatusMessage =
-                message == ManageMessageId.ChangePasswordSuccess ? "Your password has been changed."
-                : message == ManageMessageId.SetPasswordSuccess ? "Your password has been set."
-                : message == ManageMessageId.RemoveLoginSuccess ? "The external login was removed."
-                : message == ManageMessageId.Error ? "An error has occurred."
+                message == ManageMessageId.ChangePasswordSuccess ? Resources.Resource.PasswordChanged
+                : message == ManageMessageId.SetPasswordSuccess ? Resources.Resource.PasswordSet
+                : message == ManageMessageId.RemoveLoginSuccess ? Resources.Resource.ExternalLoginRemoved
+                : message == ManageMessageId.Error ? Resources.Resource.ErrorOccured
                 : "";
             ViewBag.HasLocalPassword = HasPassword();
             ViewBag.ReturnUrl = Url.Action("Manage");

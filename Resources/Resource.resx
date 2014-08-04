@@ -117,14 +117,53 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="About" xml:space="preserve">
+    <value>О нас</value>
+  </data>
+  <data name="AboutUs" xml:space="preserve">
+    <value>Это сайт Дмитрий Желтко и Максима Каленика</value>
+  </data>
   <data name="ChooseLang" xml:space="preserve">
     <value>Язык</value>
+  </data>
+  <data name="Contact" xml:space="preserve">
+    <value>Контакты</value>
   </data>
   <data name="Country" xml:space="preserve">
     <value>Country</value>
   </data>
+  <data name="Developer" xml:space="preserve">
+    <value>Разработчик</value>
+  </data>
+  <data name="Developerx" xml:space="preserve">
+    <value>Дмитрий Желтко</value>
+  </data>
+  <data name="Developery" xml:space="preserve">
+    <value>Максим Каленик</value>
+  </data>
+  <data name="Error" xml:space="preserve">
+    <value>Ошибка</value>
+  </data>
+  <data name="ErrorMessage" xml:space="preserve">
+    <value>Возникла ошибка при обработке вашего запроса.</value>
+  </data>
+  <data name="ErrorOccured" xml:space="preserve">
+    <value>Произшла ошибка.</value>
+  </data>
+  <data name="ExternalLoginRemoved" xml:space="preserve">
+    <value>Логин с внешнего ресурса был удален.</value>
+  </data>
+  <data name="HomePage" xml:space="preserve">
+    <value>Главная страница</value>
+  </data>
+  <data name="InvalidData" xml:space="preserve">
+    <value>Неверное имя пользователя или пароль.</value>
+  </data>
   <data name="LogIn" xml:space="preserve">
     <value>Войти</value>
+  </data>
+  <data name="LogOff" xml:space="preserve">
+    <value>Выйти</value>
   </data>
   <data name="Name" xml:space="preserve">
     <value>Имя</value>
@@ -132,7 +171,25 @@
   <data name="NameRequired" xml:space="preserve">
     <value>Поле "Имя" должно быть заполнено</value>
   </data>
+  <data name="PasswordChanged" xml:space="preserve">
+    <value>Ваш пароль был изменен.</value>
+  </data>
+  <data name="PasswordSet" xml:space="preserve">
+    <value>Ваш пароль был установлен.</value>
+  </data>
   <data name="Registration" xml:space="preserve">
     <value>Регистрация</value>
+  </data>
+  <data name="Theme" xml:space="preserve">
+    <value>Стили</value>
+  </data>
+  <data name="ThemeColored" xml:space="preserve">
+    <value>Амелия</value>
+  </data>
+  <data name="ThemeDark" xml:space="preserve">
+    <value>Темная</value>
+  </data>
+  <data name="ThemeLight" xml:space="preserve">
+    <value>Светлая</value>
   </data>
 </root>

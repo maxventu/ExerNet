@@ -117,14 +117,53 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="About" xml:space="preserve">
+    <value>About</value>
+  </data>
+  <data name="AboutUs" xml:space="preserve">
+    <value>This is Dmitriy Zheltko and Maxim Kalenik's site</value>
+  </data>
   <data name="ChooseLang" xml:space="preserve">
     <value>Language</value>
+  </data>
+  <data name="Contact" xml:space="preserve">
+    <value>Contact</value>
   </data>
   <data name="Country" xml:space="preserve">
     <value>Страна</value>
   </data>
+  <data name="Developer" xml:space="preserve">
+    <value>Developer</value>
+  </data>
+  <data name="Developerx" xml:space="preserve">
+    <value>Dmitriy Zheltko</value>
+  </data>
+  <data name="Developery" xml:space="preserve">
+    <value>Maxim Kalenik</value>
+  </data>
+  <data name="Error" xml:space="preserve">
+    <value>Error</value>
+  </data>
+  <data name="ErrorMessage" xml:space="preserve">
+    <value>An error occurred while processing your request.</value>
+  </data>
+  <data name="ErrorOccured" xml:space="preserve">
+    <value>An error has occurred.</value>
+  </data>
+  <data name="ExternalLoginRemoved" xml:space="preserve">
+    <value>The external login was removed.</value>
+  </data>
+  <data name="HomePage" xml:space="preserve">
+    <value>Main Page</value>
+  </data>
+  <data name="InvalidData" xml:space="preserve">
+    <value>Invalid username or password.</value>
+  </data>
   <data name="LogIn" xml:space="preserve">
     <value>Log In</value>
+  </data>
+  <data name="LogOff" xml:space="preserve">
+    <value>LogOff</value>
   </data>
   <data name="Name" xml:space="preserve">
     <value>Name</value>
@@ -132,7 +171,25 @@
   <data name="NameRequired" xml:space="preserve">
     <value>The field "Name" must be filled</value>
   </data>
+  <data name="PasswordChanged" xml:space="preserve">
+    <value>Your password has been changed.</value>
+  </data>
+  <data name="PasswordSet" xml:space="preserve">
+    <value>Your password has been set.</value>
+  </data>
   <data name="Registration" xml:space="preserve">
     <value>Registation</value>
+  </data>
+  <data name="Theme" xml:space="preserve">
+    <value>Theme</value>
+  </data>
+  <data name="ThemeColored" xml:space="preserve">
+    <value>Amelia</value>
+  </data>
+  <data name="ThemeDark" xml:space="preserve">
+    <value>Dark</value>
+  </data>
+  <data name="ThemeLight" xml:space="preserve">
+    <value>Light</value>
   </data>
 </root>
