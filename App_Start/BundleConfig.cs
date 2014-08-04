@@ -25,7 +25,9 @@ namespace Exernet
             bundles.Add(new ScriptBundle("~/bundles/markdownjs").Include(
                         "~/Scripts/jquery-2.1.1.js",
                         "~/Content/bootstrap-markdown/bootstrap-markdown.js",
-                        "~/Scripts/MarkdownDeepLib.min.js"));
+                        "~/Scripts/MarkdownDeepLib.min.js",
+                        "~/Scripts/markdown.js",
+                        "~/Scripts/to-markdown.js"));
 
             bundles.Add(new StyleBundle("~/Content/lightcss").Include(
                       "~/Content/bootstrap-united.css",

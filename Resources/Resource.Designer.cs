@@ -61,7 +61,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Выберите язык.
+        ///   Looks up a localized string similar to Язык.
         /// </summary>
         public static string ChooseLang {
             get {
