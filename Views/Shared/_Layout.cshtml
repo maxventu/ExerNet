@@ -9,25 +9,14 @@
         {  @Styles.Render("~/Content/darkcss")  }else{  @Styles.Render("~/Content/lightcss") }*@
 
     @Scripts.Render("~/bundles/modernizr")
-    @if (Request.Cookies["Theme"] == null)
+    
+    @if (Request.Cookies["Theme"] != null)
     {
-        @Styles.Render("~/Content/lightcss")
+        @Styles.Render(@String.Format("~/Content/{0}css", Request.Cookies["Theme"].Value))
     }
     else
     {
-        if (Request.Cookies["Theme"].Value == "dark")
-        {
-            @Styles.Render("~/Content/darkcss")
-        }
-        else
-        {
-            if (Request.Cookies["Theme"].Value == "light")
-            {
-                @Styles.Render("~/Content/lightcss")
-            }
-            else
-            {@Styles.Render("~/Content/colorcss") }
-        }
+        @Styles.Render("~/Content/lightcss")  
     }
 
     
@@ -77,10 +66,13 @@
 
 
                     </li>
+                    <li>
+                        @Html.Partial("_LoginPartial")
+                    </li>
                 </ul>
 
 
-                @Html.Partial("_LoginPartial")
+                
             </div>
 </div>
     </div>
