@@ -289,8 +289,6 @@
     <Folder Include="Areas\Default\Controllers\" />
     <Folder Include="Areas\Default\Models\" />
     <Folder Include="Areas\Default\Views\Shared\" />
-    <Folder Include="Views\Cultere\" />
-    <Folder Include="Views\Culture\" />
     <Folder Include="Views\Theme\" />
   </ItemGroup>
   <ItemGroup>
