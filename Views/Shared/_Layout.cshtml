@@ -6,8 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title - Exercise Network</title>
     @*@if (HttpContext.Current.Response["theme"] == "dark")
-    {  @Styles.Render("~/Content/darkcss")  }else{  @Styles.Render("~/Content/lightcss") }*@
- 
+        {  @Styles.Render("~/Content/darkcss")  }else{  @Styles.Render("~/Content/lightcss") }*@
+
     @Scripts.Render("~/bundles/modernizr")
     @if (Request.Cookies["Theme"] == null)
     {
@@ -22,14 +22,18 @@
         else
         {
             if (Request.Cookies["Theme"].Value == "light")
-        {
-            @Styles.Render("~/Content/lightcss")
-        }
-            else {@Styles.Render("~/Content/colorcss") }
+            {
+                @Styles.Render("~/Content/lightcss")
+            }
+            else
+            {@Styles.Render("~/Content/colorcss") }
         }
     }
+
+    
 </head>
 <body>
+    
     <div class="navbar navbar-inverse navbar-fixed-top">
         <div class="container">
             <div class="navbar-header">
@@ -40,26 +44,45 @@
                 </button>
                 @Html.ActionLink("ExerNet", "Index", "Home", null, new { @class = "navbar-brand" })
             </div>
-            
+
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
                     <li>@Html.ActionLink("About", "About", "Home")</li>
                     <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+                    <li>@Html.ActionLink("Markdown", "Markdown", "Markdown")</li>
+
+                </ul>
+
+                <ul class="nav navbar-nav navbar-right">
                     <li class="dropdown">
                         <a class="dropdown-toggle" data-toggle="dropdown">Theme<span class="caret"></span></a>
-                        
-                        @*<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown"><span class="caret"></span></button>*@
+
                         <ul class="dropdown-menu">
                             <li><a href="~/Culture/SetTheme?theme=light" rel="stylesheet">Light</a></li>
                             <li><a href="~/Culture/SetTheme?theme=dark" rel="stylesheet">Dark</a></li>
                             <li><a href="~/Culture/SetTheme?theme=color" rel="stylesheet">Colored</a></li>
                         </ul>
+
+                    </li>
+
+
+
+                    <li class="dropdown">
+
+                        <a class="dropdown-toggle" data-toggle="dropdown">@Resources.Resource.ChooseLang<span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="~/Culture/ChangeCulture?lang=ru" rel="stylesheet">Русский</a></li>
+                            <li><a href="~/Culture/ChangeCulture?lang=en" rel="stylesheet">English</a></li>
+                        </ul>
+
+
                     </li>
                 </ul>
+
+
                 @Html.Partial("_LoginPartial")
             </div>
-        </div>
+</div>
     </div>
     <div class="container body-content">
         @RenderBody()

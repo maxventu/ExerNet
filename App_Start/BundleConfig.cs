@@ -22,6 +22,10 @@ namespace Exernet
             bundles.Add(new ScriptBundle("~/bundles/bootstrap").Include(
                       "~/Scripts/bootstrap.js",
                       "~/Scripts/respond.js"));
+            bundles.Add(new ScriptBundle("~/bundles/markdownjs").Include(
+                        "~/Scripts/jquery-2.1.1.js",
+                        "~/Content/bootstrap-markdown/bootstrap-markdown.js",
+                        "~/Scripts/MarkdownDeepLib.min.js"));
 
             bundles.Add(new StyleBundle("~/Content/lightcss").Include(
                       "~/Content/bootstrap-united.css",
@@ -32,6 +36,10 @@ namespace Exernet
             bundles.Add(new StyleBundle("~/Content/colorcss").Include(
                       "~/Content/bootstrap-amelia.css",
                       "~/Content/site.css"));
+
+            bundles.Add(new StyleBundle("~/Content/markdown").Include(
+               "~/Content/bootstrap-markdown/bootstrap-markdown.min.css"
+               ));
         }
     }
 }

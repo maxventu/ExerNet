@@ -30,7 +30,6 @@ namespace Exernet.Controllers
             return View();
         }
 
-        
 
 
     }
