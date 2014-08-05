@@ -9,7 +9,7 @@ namespace Exernet.Migrations
     {
         public Configuration()
         {
-            AutomaticMigrationsEnabled = false;
+            AutomaticMigrationsEnabled = true;
             ContextKey = "Exernet.Models.ApplicationDbContext";
         }
 

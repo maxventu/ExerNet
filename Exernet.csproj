@@ -183,18 +183,16 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\CultureController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\MarkdownController.cs" />
+    <Compile Include="Controllers\TaskController.cs" />
+    <Compile Include="Controllers\PostController.cs" />
     <Compile Include="Filters\CultureAttribute.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201408011525594_InitialCreate.cs" />
-    <Compile Include="Migrations\201408011525594_InitialCreate.Designer.cs">
-      <DependentUpon>201408011525594_InitialCreate.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201408041852016_firstMigration.cs" />
-    <Compile Include="Migrations\201408041852016_firstMigration.Designer.cs">
-      <DependentUpon>201408041852016_firstMigration.cs</DependentUpon>
+    <Compile Include="Code\MarkDownEba.cs" />
+    <Compile Include="Migrations\201408011545537_InitialCreate.cs" />
+    <Compile Include="Migrations\201408011545537_InitialCreate.Designer.cs">
+      <DependentUpon>201408011545537_InitialCreate.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -301,7 +299,9 @@
     <Content Include="Views\Account\Manage.cshtml" />
     <Content Include="Views\Account\Register.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
-    <Content Include="Views\Markdown\Markdown.cshtml" />
+    <Content Include="Views\Task\CreateTask.cshtml" />
+    <Content Include="Views\Home\Post.cshtml" />
+    <Content Include="Views\Post\Post.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -315,16 +315,14 @@
     <None Include="Project_Readme.html" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201408011525594_InitialCreate.resx">
-      <DependentUpon>201408011525594_InitialCreate.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201408041852016_firstMigration.resx">
-      <DependentUpon>201408041852016_firstMigration.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201408011545537_InitialCreate.resx">
+      <DependentUpon>201408011545537_InitialCreate.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Resources\Resource.en.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Resource.en.Designer.cs</LastGenOutput>
       <CustomToolNamespace>Resources</CustomToolNamespace>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Resources\Resource.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>

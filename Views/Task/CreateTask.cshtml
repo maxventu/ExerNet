@@ -1,0 +1,58 @@
+﻿@using Exernet;
+@model Exernet.Models.ExernetTask
+@{
+    ViewBag.Title = "Create New Task";
+}
+@Scripts.Render("~/bundles/markdownjs")
+@Styles.Render("~/Content/markdown")
+
+<h2>Create New Task</h2>
+
+@using (Html.BeginForm("CreateTask", "Task", new { ReturnUrl = "/Home/Index"}, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+{
+<div class="row">
+    <div class="col-lg-6">
+        <form class="bs-component">
+
+            <div class="form-group">
+                <div class="col-md-10">
+                    @Html.TextBoxFor(m => m.Category, new { @class = "form-control" })
+                    @*<input class="form-control" name="title" type="text" placeholder="Title?" />*@
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-10">
+                    @Html.TextBoxFor(m => m.Tags, new { @class = "form-control"})
+                    @*<input class="form-control" name="title" type="text" placeholder="Tags?" />*@
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.TextAreaFor(m => m.Text, new { data_provide="markdown", rows="10"})
+                @*<textarea name="content" data-provide="markdown" rows="10" style="resize:none;display:block;"></textarea>*@
+            </div>
+            
+            <label class="checkbox">
+                <input name="publish" type="checkbox"> Publish
+            </label>
+            <hr />
+            
+            <div class="form-group">
+                @*<div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="Submit" class="btn btn-default" />
+                </div>*@
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="Log in" class="btn btn-default" />
+                    @*<li>@Html.ActionLink("CreateTask", "CreateTask", "Task")</li>*@
+                </div>
+            </div>
+            <div class="col-md-12">
+            <div class="panel-body">
+          @Html.Raw(System.Web.HttpUtility.HtmlDecode(@MarkdownHelper.Markdown("###EBSDFGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGA\n - wrew\n - fsdfsdf")))
+</div>          
+        </form>
+    </div>
+</div>
+}
+

@@ -212,3 +212,7 @@ $RECYCLE.BIN/
 *.msi
 *.msm
 *.msp
+Migrations/201408011545537_InitialCreate.resx
+Migrations/Configuration.cs
+Migrations/Configuration.cs
+Migrations/Configuration.cs

@@ -10,6 +10,7 @@ using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.Owin.Security;
 using Exernet.Filters;
 using Exernet.Models;
+using MarkdownDeep;
 
 
 namespace Exernet.Controllers
@@ -46,6 +47,7 @@ namespace Exernet.Controllers
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> Login(LoginViewModel model, string returnUrl)
         {
+
             if (ModelState.IsValid)
             {
                 var user = await UserManager.FindAsync(model.UserName, model.Password);
@@ -379,6 +381,7 @@ namespace Exernet.Controllers
             }
         }
 
+
         private class ChallengeResult : HttpUnauthorizedResult
         {
             public ChallengeResult(string provider, string redirectUri) : this(provider, redirectUri, null)
@@ -408,4 +411,6 @@ namespace Exernet.Controllers
         }
         #endregion
     }
+
+
 }
