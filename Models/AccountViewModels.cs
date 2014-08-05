@@ -1,4 +1,7 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using Exernet.Models;
+using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.Data.Entity;
 
 namespace Exernet.Models
 {
@@ -67,5 +70,17 @@ namespace Exernet.Models
         [Display(Name = "Confirm password")]
         [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
         public string ConfirmPassword { get; set; }
+    }
+    public class ShowUserViewModel
+    {
+        public int Rating { get; set; }
+        public string Email { get; set; }
+        public string ProfileFotoURL { get; set; }
+        public int CommentsQuantity { get; set; }
+        public int ResolvedTasksQuantity { get; set; }
+        public int TasksQuantity { get; set; }
+        public int SolutionsQuantity { get; set; }
+        public IEnumerable<Solution> Solutions { get; set; }
+        public IEnumerable<ExernetTask> Tasks { get; set; }
     }
 }

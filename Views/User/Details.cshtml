@@ -1,0 +1,16 @@
+﻿@using Microsoft.AspNet.Identity
+@model Exernet.Models.ShowUserViewModel
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>@User.Identity.GetUserName() page.</h2>
+<hr/>
+<div class="row">
+    <div class="col-md-6">
+        <h4>e-mail:@Model.Email</h4>
+    </div>
+    <div class="col-md-6">
+        @Html.ActionLink("Change password", "Manage", "Account", routeValues: null, htmlAttributes: new { title = "Manage" ,@class="btn btn-default btn-xs"})
+    </div>
+</div>

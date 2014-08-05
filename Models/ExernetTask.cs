@@ -11,8 +11,10 @@ namespace Exernet.Models
         public int Id { get; set; }
         public virtual ICollection<ApplicationUser> User { get; set; }
         public string Category { get; set; }
+        public string Title { get; set; }
         public string Text { get; set; }
         public bool Block { get; set; }
+        public DateTime UploadDate { get; set; }
         public virtual ICollection<Comment> Comments{ get; set; }
         public virtual ICollection<Like> Likes { get; set; }
         public virtual ICollection<Video> Videos { get; set; }

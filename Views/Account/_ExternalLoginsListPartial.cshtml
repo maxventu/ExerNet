@@ -1,5 +1,5 @@
 ﻿@using Microsoft.Owin.Security
-
+<link href="//netdna.bootstrapcdn.com/font-awesome/4.0.0/css/font-awesome.css" rel="stylesheet">
 <h4>Use another service to log in.</h4>
 <hr />
 @{
@@ -21,9 +21,10 @@
             <div id="socialLoginList">
                 <p>
                 @foreach (AuthenticationDescription p in loginProviders)
-                {
-                    <button type="submit" class="btn btn-default" id="@p.AuthenticationType" name="provider" value="@p.AuthenticationType" title="Log in using your @p.Caption account">@p.AuthenticationType</button>
-                }
+{
+    <button type="submit" class="btn btn-primary social-login-btn social-@p.AuthenticationType.ToLower()" id="@p.AuthenticationType" name="provider" value="@p.AuthenticationType" title="Log in using your @p.Caption account"><i class="fa fa-@p.AuthenticationType.ToLower()"></i></button>
+}
+                   
                 </p>
             </div>
         }
