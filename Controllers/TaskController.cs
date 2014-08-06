@@ -28,6 +28,9 @@ namespace Exernet.Controllers
 
             ExernetTask task = new ExernetTask();
             task.Text = model.Text;
+            task.Tags = model.Tags;
+            task.Title = model.Title;
+            task.Category = model.Category;
 
 
             // If we got this far, something failed, redisplay form
