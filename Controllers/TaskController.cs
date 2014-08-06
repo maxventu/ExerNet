@@ -10,8 +10,9 @@ namespace Exernet.Controllers
 {
     public class TaskController : Controller
     {
-        //
-        // GET: /Markdown/
+        private ApplicationDbContext db = new ApplicationDbContext();
+        private static int taskId;
+        [HttpGet]
         public ActionResult CreateTask(String input) 
         {
             var md = new MarkdownDeep.Markdown();
@@ -23,20 +24,65 @@ namespace Exernet.Controllers
         }
 
         [HttpPost]
-        public async Task<ActionResult> CreateTask(ExernetTask model, string returnUrl)
+        public ActionResult CreateTask(ExernetTaskViewModel model, string returnUrl)
         {
-
             ExernetTask task = new ExernetTask();
             task.Text = model.Text;
-            task.Tags = model.Tags;
+            task.Tags = GenerateTagsForTaskModel(model.Tags);
             task.Title = model.Title;
             task.Category = model.Category;
+            task.Block = true;
+            task.UploadDate = DateTime.Now;
+            db.Tasks.Add(task);            
+            db.SaveChanges();
+            taskId = db.Tasks.Local[0].Id;
 
-
-            // If we got this far, something failed, redisplay form
-            return View(model);
+            
+            return RedirectToAction("PostTask");
         }
 
+       
+        
+            private ICollection<Tag> GenerateTagsForTaskModel(string tags) 
+            {
+                string[] listOfTags = ParseTags(tags);
+                List<Tag> Tags = new List<Tag>();
+
+                foreach(string str in listOfTags)
+                {
+                    Tag t = new Tag();
+                    t.Text = str;
+                    Tags.Add(t);
+                }
+
+                return Tags;
+
+
+            }
+
+            private string[] ParseTags(string tags) 
+            {
+                string[] listOfTags= tags.Split(' ');
+
+                return listOfTags;
+            }
+
+            public ActionResult PostTask(int? id) 
+            {
+
+                var task = new ExernetTask();
+                if (id == null)
+                {
+                    task = db.Tasks.Find(taskId);
+                }
+                else
+                {
+                    task = db.Tasks.Find(id);
+                }
+
+
+                return View(task);
+            }
 
 
     }

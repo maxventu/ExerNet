@@ -83,4 +83,47 @@ namespace Exernet.Models
         public IEnumerable<Solution> Solutions { get; set; }
         public IEnumerable<ExernetTask> Tasks { get; set; }
     }
+
+    public class ExernetTaskViewModel
+    {
+        [Required]
+        [Display(Name = "Category")]
+        public string Category { get; set; }
+
+        [Required]
+        [Display(Name = "Title")]
+        public string Title { get; set; }
+
+        [Required]
+        [Display(Name = "Text")]
+        public string Text { get; set; }
+
+        // String fields for ICollections 
+
+        [Required]
+        [Display(Name = "Answers")]
+        public string Answers { get; set; }
+
+        [Required]
+        [Display(Name = "Tags")]
+        public string Tags { get; set; }
+
+        [Required]
+        [Display(Name = "Videos")]
+        public string Videos { get; set; }
+
+        [Required]
+        [Display(Name = "Images")]
+        public string Images { get; set; }
+
+        [Required]
+        [Display(Name = "Formulas")]
+        public string Formulas { get; set; }
+
+        [Required]
+        [Display(Name = "Charts")]
+        public string Charts { get; set; }
+
+
+    }
 }

@@ -1,5 +1,5 @@
 ﻿@using Exernet;
-@model Exernet.Models.ExernetTask
+@model Exernet.Models.ExernetTaskViewModel
 @{
     ViewBag.Title = "Create New Task";
 }
@@ -50,7 +50,7 @@
                     <input type="submit" value="Submit" class="btn btn-default" />
                 </div>*@
                 <div class="col-md-offset-2 col-md-10">
-                    <input type="submit" value="Log in" class="btn btn-default" />
+                    <input type="submit" value="Submit" class="btn btn-default" />
                     @*<li>@Html.ActionLink("CreateTask", "CreateTask", "Task")</li>*@
                 </div>
             </div>
@@ -58,7 +58,8 @@
             <div class="panel-body">
 
           @Html.Raw(System.Web.HttpUtility.HtmlDecode(@MarkdownHelper.Markdown("###EBSDFGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGA\n - wrew\n - fsdfsdf")))
-</div>          
+</div>       
+                </div>   
         </form>
     </div>
 </div>

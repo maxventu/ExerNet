@@ -20,6 +20,7 @@ namespace Exernet.Models
             : base("DefaultConnection")
         {
         }
+        public DbSet<ExernetTask> Tasks { get; set; }
         public DbSet<Tag> Tags { get; set; }
         public DbSet<Chart> Charts { get; set; }
         public DbSet<Formula> Formulas { get; set; }
