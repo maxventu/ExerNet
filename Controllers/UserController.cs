@@ -33,10 +33,11 @@ namespace Exernet.Controllers
         }
 
         //
-        // GET: /User/Details/
-        public ActionResult Details()
+        // GET: /User/Details/id
+        public ActionResult Details(string id)
         {
-            var user = UserManager.FindById(User.Identity.GetUserId());
+            var user = UserManager.FindByName(id);
+            if (user == null) return RedirectToAction("Index", "Home");
             var userInfo = new ShowUserViewModel()
             {
                 CommentsQuantity = user.Comments.Count,
@@ -47,6 +48,8 @@ namespace Exernet.Controllers
                 SolutionsQuantity = user.Solutions.Count,
                 Tasks = user.Tasks,
                 TasksQuantity = user.Tasks.Count,
+                ProfileFotoURL=user.ProfileFotoURL,
+                UserName=user.UserName
             };
             return View(userInfo);
         }

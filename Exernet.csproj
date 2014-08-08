@@ -191,25 +191,9 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Code\MarkDownEba.cs" />
-    <Compile Include="Migrations\201408061101281_1st mig.cs" />
-    <Compile Include="Migrations\201408061101281_1st mig.Designer.cs">
-      <DependentUpon>201408061101281_1st mig.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201408061127516_2nd.cs" />
-    <Compile Include="Migrations\201408061127516_2nd.Designer.cs">
-      <DependentUpon>201408061127516_2nd.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201408061146229_adfg.cs" />
-    <Compile Include="Migrations\201408061146229_adfg.Designer.cs">
-      <DependentUpon>201408061146229_adfg.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201408071216031_apllication_user_in_exernetTask.cs" />
-    <Compile Include="Migrations\201408071216031_apllication_user_in_exernetTask.Designer.cs">
-      <DependentUpon>201408071216031_apllication_user_in_exernetTask.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201408071302027_userid.cs" />
-    <Compile Include="Migrations\201408071302027_userid.Designer.cs">
-      <DependentUpon>201408071302027_userid.cs</DependentUpon>
+    <Compile Include="Migrations\201408080909054_firstMigration.cs" />
+    <Compile Include="Migrations\201408080909054_firstMigration.Designer.cs">
+      <DependentUpon>201408080909054_firstMigration.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -352,20 +336,8 @@
     <None Include="Project_Readme.html" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201408061101281_1st mig.resx">
-      <DependentUpon>201408061101281_1st mig.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201408061127516_2nd.resx">
-      <DependentUpon>201408061127516_2nd.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201408061146229_adfg.resx">
-      <DependentUpon>201408061146229_adfg.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201408071216031_apllication_user_in_exernetTask.resx">
-      <DependentUpon>201408071216031_apllication_user_in_exernetTask.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201408071302027_userid.resx">
-      <DependentUpon>201408071302027_userid.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201408080909054_firstMigration.resx">
+      <DependentUpon>201408080909054_firstMigration.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Resources\Category.en.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
