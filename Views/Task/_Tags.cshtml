@@ -1,0 +1,26 @@
+﻿@model IPagedList<Tags>
+
+
+<form method="get" action="@Url.Action("CreateTask")" data-itf-ajax="true" data-otf.target="tagList">
+
+    <input type="search" name="searchTerm" />
+    <input type="submit" value="Search By Text" />
+</form>
+
+
+<div id="tagList">
+
+
+
+    <div class="pagedList" data-otf-target="#tagList">
+        @Html.PagedListPager(Model, page => Url.Action("CreateTask", new { page }),
+            PagedListRenderOptions.MinimalWithItemCountText)
+
+    </div>
+
+
+
+
+
+</div>
+

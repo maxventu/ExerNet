@@ -9,8 +9,8 @@ namespace Exernet
         public static void RegisterBundles(BundleCollection bundles)
         {
             bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
-                        "~/Scripts/jquery-{version}.js"));
-
+                        "~/AutocompleteSource/jquery.js"));
+           
             bundles.Add(new ScriptBundle("~/bundles/jqueryval").Include(
                         "~/Scripts/jquery.validate*"));
 
@@ -23,7 +23,6 @@ namespace Exernet
                       "~/Scripts/bootstrap.js",
                       "~/Scripts/respond.js"));
             bundles.Add(new ScriptBundle("~/bundles/markdownjs").Include(
-                        "~/Scripts/jquery-2.1.1.js",
                         "~/Content/bootstrap-markdown/bootstrap-markdown.js",
                         "~/Scripts/MarkdownDeepLib.min.js",
                         "~/Scripts/markdown.js",

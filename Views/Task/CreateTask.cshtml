@@ -3,14 +3,69 @@
 @{
     ViewBag.Title = "Create New Task";
 }
-@Scripts.Render("~/bundles/markdownjs")
+@*@Scripts.Render("~/bundles/markdownjs")
 @Styles.Render("~/Content/markdown")
-<script src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>
+<link rel="stylesheet" href="~/Content/jquary-ui.css">
+<script src="~/Scripts/jquery.unobtrusive*"></script>
 <script src="~/Scripts/jquery-1.6.2.min.js"></script>
 <script src="~/Scripts/jquery-ui.min.js"></script>
 <script src="~/Scripts/mustache.js"></script>
+<script src="~/Scripts/validate*"></script>*@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>jQuery UI Autocomplete - Multiple values</title>
+    @*<link rel="stylesheet" href="http://code.jquery.com/ui/1.11.0/themes/smoothness/jquery-ui.css">
+    <script src="http://code.jquery.com/jquery-1.10.2.js"></script>
+    <script src="http://code.jquery.com/ui/1.11.0/jquery-ui.js"></script>*@
+    <link rel="stylesheet" href="~/AutocompleteSource/jquery-ui.css">
+        <script src="~/AutocompleteSource/jquery.js"></script>
+    <script src="~/AutocompleteSource/jquery-ui.js"></script>
 
-<h2>Create New Task</h2>
+        <script src="~/Scripts/myJava.js"></script>
+
+        </head>
+        <body>
+
+            <div class="ui-widget">
+                <label for="tags">Tag programming languages: </label>
+                <input id="tags" size="50">
+            </div>
+
+
+        </body>
+        </html>
+
+
+
+        @*@using (Ajax.BeginForm("TagSearch", "Task",
+new AjaxOptions
+{
+    InsertionMode = InsertionMode.Replace,
+    HttpMethod = "GET",
+    LoadingElementId = "ajax-loader",
+    UpdateTargetId = "searchresults",
+}))
+{
+    <input type="text" name="q" data-autocomplete-source="@Url.Action("QuickSearch", "Task")" />
+    <input type="submit" value="search" />
+    <img id="ajax-loader"
+         src="~/Content/Images/ajax-loader.gif"
+         style="display:none" />
+}*@
+
+
+
+
+
+
+
+
+
+
+
+
 
 @*<script>
     $("#tagSearch").submit(function (event) {
@@ -93,8 +148,10 @@ new AjaxOptions
     </form>*@
 
 
+@*@Html.Partial("_Tags", Model)*@
 
-@using (Html.BeginForm("CreateTask", "Task", new { ReturnUrl = "/Home/Index" }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+
+@*@using (Html.BeginForm("CreateTask", "Task", new { ReturnUrl = "/Home/Index" }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
     {
         <div class="row">
             <div class="col-lg-6">
@@ -109,6 +166,8 @@ new AjaxOptions
                         <div class="col-md-9">
                             <div class="form-group">
                                 @Html.TextBoxFor(m => m.Tags, new { @class = "form-control", placeholder = "Tags?" })
+                                <input type="search" name="SearchTerm" data-otf-autocomple=@Url.Action("TagSearch") />
+
                             </div>
                         </div>
                         <div class="col-md-3" align="right">
@@ -147,4 +206,4 @@ new AjaxOptions
                 </form>
             </div>
         </div>
-    }
+    }*@

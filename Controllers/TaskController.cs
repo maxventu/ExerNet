@@ -92,8 +92,15 @@ namespace Exernet.Controllers
 
         public ActionResult TagSearch(string term)
         {
-            var tags = GetTag(term);//.Select(a => new { value = a.Text });
-            return Json(tags, JsonRequestBehavior.AllowGet);
+            var model = db.Tags
+                .Where(t => t.Text.StartsWith(term))
+                .Take(10)
+                .Select(t => new
+                {
+                    label = t.Text
+                });
+            //var tags = GetTag(term);//.Select(a => new { value = a.Text });
+            return Json(model, JsonRequestBehavior.AllowGet);
         }
        
         private List<Tag> GetTag(string searchString)
