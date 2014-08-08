@@ -193,9 +193,9 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Code\MarkDownEba.cs" />
-    <Compile Include="Migrations\201408081038226_firstMigration.cs" />
-    <Compile Include="Migrations\201408081038226_firstMigration.Designer.cs">
-      <DependentUpon>201408081038226_firstMigration.cs</DependentUpon>
+    <Compile Include="Migrations\201408081514323_1st.cs" />
+    <Compile Include="Migrations\201408081514323_1st.Designer.cs">
+      <DependentUpon>201408081514323_1st.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -234,9 +234,9 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="AutocompleteSource\jquery-ui.css" />
-    <Content Include="AutocompleteSource\jquery-ui.js" />
-    <Content Include="AutocompleteSource\jquery.js" />
+    <Content Include="Content\jquery-ui.css" />
+    <Content Include="Scripts\jquery-ui.js" />
+    <Content Include="Scripts\jquery.js" />
     <Content Include="Content\bootstrap-amelia.css" />
     <Content Include="Content\bootstrap-markdown\bootstrap-markdown.fr.js" />
     <Content Include="Content\bootstrap-markdown\bootstrap-markdown.js" />
@@ -330,7 +330,6 @@
     <Content Include="Content\bootstrap-markdown\package.json" />
     <Content Include="Content\bootstrap-markdown\README.md" />
     <None Include="Scripts\jquery-2.1.1.intellisense.js" />
-    <Content Include="Samples\Autocomplete\MusicScripts.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\jquery-2.1.1.js" />
@@ -390,19 +389,14 @@
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Task\CreateTask.cshtml" />
     <Content Include="Views\Home\Post.cshtml" />
-    <Content Include="Views\Markdown\Markdown.cshtml" />
     <Content Include="Views\User\Details.cshtml" />
     <Content Include="Views\Task\PostTask.cshtml" />
-    <Content Include="Views\Autocomplete\Index.cshtml" />
-    <Content Include="Views\Autocomplete\_ArtistSearch.cshtml" />
-    <Content Include="Views\Task\_Tags.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Default\Controllers\" />
     <Folder Include="Areas\Default\Models\" />
     <Folder Include="Areas\Default\Views\Shared\" />
-    <Folder Include="Views\Post\" />
     <Folder Include="Views\Theme\" />
   </ItemGroup>
   <ItemGroup>
@@ -410,8 +404,8 @@
     <None Include="Project_Readme.html" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201408081038226_firstMigration.resx">
-      <DependentUpon>201408081038226_firstMigration.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201408081514323_1st.resx">
+      <DependentUpon>201408081514323_1st.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Resources\Category.en.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
@@ -450,7 +444,7 @@
     <VisualStudio>
       <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
         <WebProjectProperties>
-          <UseIIS>True</UseIIS>
+          <UseIIS>False</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>54084</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>

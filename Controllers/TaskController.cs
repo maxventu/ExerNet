@@ -34,6 +34,7 @@ namespace Exernet.Controllers
             ExernetTask task = new ExernetTask();
             task.Text = model.Text;
             task.Tags = GenerateTagsForTaskModel(model.Tags);
+            task.Answers = GenerateAnswersForTaskModel(model.Answers);
             task.Title = model.Title;
             task.Category = model.Category;
             task.Block = true;
@@ -43,7 +44,6 @@ namespace Exernet.Controllers
             db.SaveChanges();
             taskId = db.Tasks.Local[0].Id;
 
-
             return RedirectToAction("PostTask");
         }
 
@@ -51,26 +51,36 @@ namespace Exernet.Controllers
 
         private ICollection<Tag> GenerateTagsForTaskModel(string tags)
         {
-            string[] listOfTags = ParseTags(tags);
+            string[] listOfTags = tags.Split(' ', ',', ';');
+
             List<Tag> Tags = new List<Tag>();
 
             foreach (string str in listOfTags)
             {
-                Tag t = new Tag();
-                t.Text = str;
-                Tags.Add(t);
+                var tag = db.Tags.FirstOrDefault(obj => obj.Text == str);
+                if (tag == null)
+                {
+                    tag = new Tag();
+                    tag.Text = str;
+                }
+                Tags.Add(tag);
             }
-
             return Tags;
-
-
         }
 
-        private string[] ParseTags(string tags)
+        private ICollection<Answer> GenerateAnswersForTaskModel(string term)
         {
-            string[] listOfTags = tags.Split(' ');
+            string[] listOfTags = term.Split(' ', ',', ';');
 
-            return listOfTags;
+            List<Answer> answers = new List<Answer>();
+
+            foreach (string str in listOfTags)
+            {
+                Answer answer = new Answer();
+                answer.Text = str;
+                answers.Add(answer);
+            }
+            return answers;
         }
 
         public ActionResult PostTask(int? id)
@@ -85,24 +95,19 @@ namespace Exernet.Controllers
             {
                 task = db.Tasks.Find(id);
             }
-            
+
 
             return View(task);
         }
 
-        public ActionResult TagSearch(string term)
+        public JsonResult TagSearch(string term)
         {
-            var model = db.Tags
-                .Where(t => t.Text.StartsWith(term))
-                .Take(10)
-                .Select(t => new
-                {
-                    label = t.Text
-                });
-            //var tags = GetTag(term);//.Select(a => new { value = a.Text });
-            return Json(model, JsonRequestBehavior.AllowGet);
+
+            var tags = db.Tags.Select(obj => obj.Text);
+
+            return Json(tags, JsonRequestBehavior.AllowGet);
         }
-       
+
         private List<Tag> GetTag(string searchString)
         {
             var tags = db.Tags.Where(a => a.Text.Contains(searchString)).ToList();
@@ -111,7 +116,7 @@ namespace Exernet.Controllers
         }
 
 
-       
+
 
     }
 }

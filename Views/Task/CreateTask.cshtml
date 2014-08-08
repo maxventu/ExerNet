@@ -3,176 +3,44 @@
 @{
     ViewBag.Title = "Create New Task";
 }
-@*@Scripts.Render("~/bundles/markdownjs")
-@Styles.Render("~/Content/markdown")
-<link rel="stylesheet" href="~/Content/jquary-ui.css">
-<script src="~/Scripts/jquery.unobtrusive*"></script>
-<script src="~/Scripts/jquery-1.6.2.min.js"></script>
-<script src="~/Scripts/jquery-ui.min.js"></script>
-<script src="~/Scripts/mustache.js"></script>
-<script src="~/Scripts/validate*"></script>*@
-<!doctype html>
-<html lang="en">
+@Scripts.Render("~/bundles/markdownjs")
+    @Styles.Render("~/Content/markdown")
+   
+
 <head>
     <meta charset="utf-8">
     <title>jQuery UI Autocomplete - Multiple values</title>
-    @*<link rel="stylesheet" href="http://code.jquery.com/ui/1.11.0/themes/smoothness/jquery-ui.css">
-    <script src="http://code.jquery.com/jquery-1.10.2.js"></script>
-    <script src="http://code.jquery.com/ui/1.11.0/jquery-ui.js"></script>*@
-    <link rel="stylesheet" href="~/AutocompleteSource/jquery-ui.css">
-        <script src="~/AutocompleteSource/jquery.js"></script>
-    <script src="~/AutocompleteSource/jquery-ui.js"></script>
-
-        <script src="~/Scripts/myJava.js"></script>
-
-        </head>
-        <body>
-
-            <div class="ui-widget">
-                <label for="tags">Tag programming languages: </label>
-                <input id="tags" size="50">
-            </div>
 
 
-        </body>
-        </html>
+    <script src="~/Scripts/myJava.js"></script>
+
+</head>
+
+<h2>Post Task</h2>
 
 
 
-        @*@using (Ajax.BeginForm("TagSearch", "Task",
-new AjaxOptions
+@using (Html.BeginForm("CreateTask", "Task", new { ReturnUrl = "/Home/Index" }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
 {
-    InsertionMode = InsertionMode.Replace,
-    HttpMethod = "GET",
-    LoadingElementId = "ajax-loader",
-    UpdateTargetId = "searchresults",
-}))
-{
-    <input type="text" name="q" data-autocomplete-source="@Url.Action("QuickSearch", "Task")" />
-    <input type="submit" value="search" />
-    <img id="ajax-loader"
-         src="~/Content/Images/ajax-loader.gif"
-         style="display:none" />
-}*@
+    <div class="row">
+        <div class="col-lg-6">
+            <form class="bs-component">
 
+                <div class="form-group">
+                    @Html.TextBoxFor(m => m.Title, new { @class = "form-control", placeholder = "Title?" })
+                </div>
 
+                <div class="row">
 
-
-
-
-
-
-
-
-
-
-
-@*<script>
-    $("#tagSearch").submit(function (event) {
-        event.preventDefault();
-        var form = $(this);
-        $.getJSON(form.attr("action"), form.serialize(), function (data) {
-            // now what?
-        });
-    });
-</script>
-
-<script id="tagTemplate" type="text/html">
-    <ul>
-        {{#tags}}
-        <li>{{Text}}</li>
-        {{/tags}}
-    </ul>
-</script>
-<div id="searchresults">
-</div>
-
-<script>
-    $("#tagSearch").submit(function (event) {
-        event.preventDefault();
-        var form = $(this);
-        $.getJSON(form.attr("action"), form.serialize(), function (data) {
-            var html = Mustache.to_html($("#tagTemplate").html(), { tags: data });
-            $("#searchresults").empty().append(html);
-        });
-    });
-</script>
-
-
-<script>
-    $("#tagSearch").submit(function (event) {
-        event.preventDefault();
-        var form = $(this);
-        $.ajax({
-            url: form.attr("action"),
-            data: form.serialize(),
-            beforeSend: function () {
-                $("#ajax-loader").show();
-            },
-            complete: function () {
-                $("#ajax-loader").hide();
-            },
-            error: searchFailed,
-            success: function (data) {
-                var html = Mustache.to_html($("#tagTemplate").html(),
-                { tags: data });
-                $("#searchresults").empty().append(html);
-            }
-        });
-    });
-</script>
-
-@using (Ajax.BeginForm("TagSearch", "Task",
-new AjaxOptions
-{
-    InsertionMode = InsertionMode.Replace,
-    HttpMethod = "GET",
-    OnFailure = "searchFailed",
-    LoadingElementId = "ajax-loader",
-    UpdateTargetId = "searchresults",
-}))
-{
-    <input type="text" name="q" data-autocomplete-source="@Url.Action("QuickSearch", "Task")" />
-    <input type="submit" value="search" />
-    <img id="ajax-loader"
-         src="~/Content/Images/ajax-loader.gif"
-         style="display:none" />
-}
-
-<form id="artistSearch" method="get" action="@Url.Action("ArtistSearch", "Home")">
-        <input type="text" name="q"
-               data-autocomplete-source="@Url.Action("QuickSearch", "Home")" />
-        <input type="submit" value="search" />
-        <img id="ajax-loader" src="~/Content/Images/ajax-loader.gif"
-             style="display:none" />
-    </form>*@
-
-
-@*@Html.Partial("_Tags", Model)*@
-
-
-@*@using (Html.BeginForm("CreateTask", "Task", new { ReturnUrl = "/Home/Index" }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
-    {
-        <div class="row">
-            <div class="col-lg-6">
-                <form class="bs-component">
-
-                    <div class="form-group">
-                        @Html.TextBoxFor(m => m.Title, new { @class = "form-control", placeholder = "Title?" })
-                    </div>
-
-                    <div class="row">
-
-                        <div class="col-md-9">
-                            <div class="form-group">
-                                @Html.TextBoxFor(m => m.Tags, new { @class = "form-control", placeholder = "Tags?" })
-                                <input type="search" name="SearchTerm" data-otf-autocomple=@Url.Action("TagSearch") />
-
-                            </div>
+                    <div class="col-md-9">
+                        <div class="form-group">
+                            @Html.TextBoxFor(m => m.Tags, new { @class = "form-control", id="tags", placeholder = "Tags?" })
+                            
                         </div>
-                        <div class="col-md-3" align="right">
-                                     <div class="form-group">
-                                         @Html.DropDownListFor(m => m.Category, new SelectList(
+                    </div>
+                    <div class="col-md-3" align="right">
+                        <div class="form-group">
+                            @Html.DropDownListFor(m => m.Category, new SelectList(
                                                 new List<Object>{
                                                 new{ value = Resources.Category.Math, text = Resources.Category.Math},
                                                 new{ value = Resources.Category.Cult, text = Resources.Category.Cult},
@@ -182,28 +50,31 @@ new AjaxOptions
                                                 new{ value = Resources.Category.WithoutCategory, text = Resources.Category.WithoutCategory}
 
                             }, "value", "text", Resources.Category.WithoutCategory), new { @class = "form-control" })
-                                     </div>
-                                 </div>
-
-
-                    </div>
-
-
-
-                    <div class="form-group">
-                        @Html.TextAreaFor(m => m.Text, new { data_provide = "markdown", rows = "10" })
-
-                    </div>
-
-
-
-                    <div class="form-group">
-                        <div class=" col-md-11">
-                            <input type="submit" value="Submit" class="btn btn-success" />
                         </div>
                     </div>
 
-                </form>
-            </div>
+
+                </div>
+
+
+
+                <div class="form-group">
+                    @Html.TextAreaFor(m => m.Text, new { data_provide = "markdown", rows = "10" })
+                </div>
+
+                <div class="col-md-12">
+                    <div class="form-group">
+                        @Html.TextBoxFor(m => m.Answers, new { @class = "form-control", placeholder = "Answers?" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class=" col-md-11">
+                        <input type="submit" value="Submit" class="btn btn-success" />
+                    </div>
+                </div>
+
+            </form>
         </div>
-    }*@
+    </div>
+}

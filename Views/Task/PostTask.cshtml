@@ -6,52 +6,34 @@
     ViewBag.Title = "PostTask";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
-<h2>PostTask</h2>
-
-
-
-
 <head>
-
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
-    @*<link rel="stylesheet" type="text/css" href="~/Content/bootstrap.min.css" />*@
-    
     <title>@Model.Title</title>
-
-    
-
 </head>
-
 <body>
-
-
-  
-    <!-- Page Content -->
     <div class="container">
-
         <div class="row">
-
-            <!-- Blog Post Content Column -->
             <div class="col-lg-8">
-
-                <!-- Blog Post -->
-                <!-- Title -->
                 <h1>@Model.Title</h1>
-
-                <!-- Author -->
-                <p class="lead">
-                    by @Html.ActionLink(Model.User.UserName, "Details", "User", routeValues: new { id = Model.User.UserName }, htmlAttributes: new { title = String.Format("{0} account page", Model.User.UserName) })
-                    
-                </p>
-
-                
                 <div class="row">
-                    <!-- Date/Time -->
+                    <div class="col-md-8">
+                        <p class="lead">
+                            by @Html.ActionLink(Model.User.UserName, "Details", "User", routeValues: new { id = Model.User.UserName }, htmlAttributes: new { title = String.Format("{0} account page", Model.User.UserName) })
+                        </p>
+                    </div>
+                    <div class="col-md-4" align="right">
+                        @foreach (var str in Model.Tags.Select(obj => obj.Text))
+                        {
+                            <span class="label label-primary">@str</span>
+                        }
+
+                    </div>
+                </div>
+                <div class="row">
                     <div class="col-md-8">
                         <div><p><span class="glyphicon glyphicon-time"></span> Posted on @Model.UploadDate </p></div>
                     </div>
@@ -60,82 +42,26 @@
                     </div>
                 </div>
                 <hr>
-
-                <!-- Preview Image -->
-
-
-                <!-- Post Content -->
                 <p class="lead">
                     @Html.Raw(System.Web.HttpUtility.HtmlDecode(@MarkdownHelper.Markdown(Model.Text)))
-
-                <hr>
-
-                <!-- Blog Comments -->
-                <!-- Comments Form -->
-                <div class="well">
-                    <h4>Leave a Comment:</h4>
-                    <form role="form">
-                        <div class="form-group">
-                            <textarea class="form-control" rows="3"></textarea>
-                        </div>
-                        <button type="submit" class="btn btn-primary">Submit</button>
-                    </form>
-                </div>
-
-                <hr>
-
-                <!-- Posted Comments -->
-                <!-- Comment -->
-                <!-- Comment -->
-                <div class="media">
-                    <a class="pull-left" href="#">
-
-                    </a>
-
-                </div>
-
-        </div>
-
-        <!-- Blog Sidebar Widgets Column -->
-        <div class="col-md-4">
-
-            <!-- Blog Search Well -->
-            <!-- Blog Categories Well -->
-            <div class="well">
-                <h2>Tags</h2>
-               
-                    
-                        @foreach (var str in @Model.Tags.Select(obj => obj.Text))
-                        {
-                             <div class="row">
-                                <h4>@str</h4>
+                    <hr>
+                    <div class="well">
+                        <h4>Leave a Comment:</h4>
+                        <form role="form">
+                            <div class="form-group">
+                                <textarea class="form-control" rows="3"></textarea>
                             </div>
-
-                        }
-                        
-                  
-                    <!-- /.row -->
-                </div>
-
-                <!-- Side Widget Well -->
-                
+                            <button type="submit" class="btn btn-primary">Submit</button>
+                        </form>
+                    </div>
+                    <hr>
+                    <div class="media">
+                        <a class="pull-left" href="#">
+                        </a>
+                    </div>
             </div>
-
         </div>
-        <!-- /.row -->
-
         <hr>
-
-
-
     </div>
-
-
-
-
-
-
-
 </body>
-
 </html>
