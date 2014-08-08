@@ -7,12 +7,16 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
+using CloudinaryDotNet;
+using CloudinaryDotNet.Actions;
+using System.IO;
 
 namespace Exernet.Controllers
 {
     [Authorize]
     public class UserController : Controller
     {
+        ApplicationDbContext db = new ApplicationDbContext();
         public UserController()
             : this(new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(new ApplicationDbContext())))
         {
@@ -53,6 +57,47 @@ namespace Exernet.Controllers
                 UserName=user.UserName
             };
             return View(userInfo);
+        }
+
+        // POST: /User/Details/id
+        [HttpPost]
+        public ActionResult Details(string id, HttpPostedFileBase fileUpload)
+        {
+            if (fileUpload == null)
+            {
+                return View(id);
+            }
+
+            Cloudinary cloudinary = new Cloudinary(new Account(
+            "goodcloud",
+            "836668373272998",
+            "HJ2Q7oe53Ru7muxKcpVj4ZdqVPQ"));
+
+            var imageToDelete = UserManager.FindByName(id).ProfileFotoURL;
+            var public_id = Path.GetFileNameWithoutExtension(imageToDelete);
+            DelResParams deleteParams = new DelResParams()
+            {
+                
+                PublicIds = new System.Collections.Generic.List<String>() { String.Format(@"Exernet/ProfilePictures/{0}",public_id) },
+                Invalidate = true
+            };
+            cloudinary.DeleteResources(deleteParams);
+            db.SaveChanges();
+            var uploadParams = new ImageUploadParams()
+            {
+                File = new FileDescription(fileUpload.FileName, fileUpload.InputStream),
+                Folder="Exernet/ProfilePictures"
+            };
+
+            var uploadResult = cloudinary.Upload(uploadParams);
+
+            var uplPath = uploadResult.Uri.AbsoluteUri;
+
+            db.Users.Find(User.Identity.GetUserId()).ProfileFotoURL = uplPath;
+            //db.Entry().State = System.Data.Entity.EntityState.Added;
+            db.SaveChanges();
+
+            return RedirectToAction("Details", new {id = id });
         }
 
         //
