@@ -190,13 +190,9 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Code\MarkDownEba.cs" />
-    <Compile Include="Migrations\201408080922477_fir.cs" />
-    <Compile Include="Migrations\201408080922477_fir.Designer.cs">
-      <DependentUpon>201408080922477_fir.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201408080926311_secondMigration.cs" />
-    <Compile Include="Migrations\201408080926311_secondMigration.Designer.cs">
-      <DependentUpon>201408080926311_secondMigration.cs</DependentUpon>
+    <Compile Include="Migrations\201408081033194_1st.cs" />
+    <Compile Include="Migrations\201408081033194_1st.Designer.cs">
+      <DependentUpon>201408081033194_1st.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -342,11 +338,8 @@
     <None Include="Project_Readme.html" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201408080922477_fir.resx">
-      <DependentUpon>201408080922477_fir.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201408080926311_secondMigration.resx">
-      <DependentUpon>201408080926311_secondMigration.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201408081033194_1st.resx">
+      <DependentUpon>201408081033194_1st.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Resources\Category.en.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
