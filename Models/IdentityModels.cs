@@ -8,6 +8,7 @@ namespace Exernet.Models
     public class ApplicationUser : IdentityUser
     {
         public int Rating { get; set; }
+        public string ProfileFotoURL { get; set; }
         public virtual ICollection<Solution> Solutions { get; set; }
         public virtual ICollection<ExernetTask> Tasks { get; set; }
         public virtual ICollection<Like> Likes { get; set; }
