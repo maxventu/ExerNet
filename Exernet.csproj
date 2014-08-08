@@ -56,15 +56,15 @@
     </Reference>
     <Reference Include="Microsoft.AspNet.Identity.Core, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\Microsoft.AspNet.Identity.Core.2.0.1\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Core.2.1.0\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.AspNet.Identity.EntityFramework, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\Microsoft.AspNet.Identity.EntityFramework.2.0.1\lib\net45\Microsoft.AspNet.Identity.EntityFramework.dll</HintPath>
+      <HintPath>..\packages\Microsoft.AspNet.Identity.EntityFramework.2.1.0\lib\net45\Microsoft.AspNet.Identity.EntityFramework.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.AspNet.Identity.Owin, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\Microsoft.AspNet.Identity.Owin.2.0.1\lib\net45\Microsoft.AspNet.Identity.Owin.dll</HintPath>
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Owin.2.1.0\lib\net45\Microsoft.AspNet.Identity.Owin.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="Microsoft.Owin, Version=2.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
@@ -105,7 +105,7 @@
     </Reference>
     <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\Newtonsoft.Json.6.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <HintPath>..\packages\Newtonsoft.Json.6.0.4\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="Owin.Security.Providers">
       <HintPath>..\packages\Owin.Security.Providers.1.7.0\lib\net45\Owin.Security.Providers.dll</HintPath>
@@ -203,6 +203,14 @@
     <Compile Include="Migrations\201408061146229_adfg.Designer.cs">
       <DependentUpon>201408061146229_adfg.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201408071216031_apllication_user_in_exernetTask.cs" />
+    <Compile Include="Migrations\201408071216031_apllication_user_in_exernetTask.Designer.cs">
+      <DependentUpon>201408071216031_apllication_user_in_exernetTask.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201408071302027_userid.cs" />
+    <Compile Include="Migrations\201408071302027_userid.Designer.cs">
+      <DependentUpon>201408071302027_userid.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Answer.cs" />
@@ -217,6 +225,16 @@
     <Compile Include="Models\ExernetTask.cs" />
     <Compile Include="Models\Video.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Resources\Category.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Category.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\Category.en.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Category.en.resx</DependentUpon>
+    </Compile>
     <Compile Include="Resources\Resource.en.Designer.cs">
       <DependentUpon>Resource.en.resx</DependentUpon>
       <AutoGen>True</AutoGen>
@@ -241,6 +259,7 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\Images\ajax-loader.gif" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -257,12 +276,15 @@
     <Content Include="Content\bootstrap-markdown\package.json" />
     <Content Include="Content\bootstrap-markdown\README.md" />
     <None Include="Scripts\jquery-2.1.1.intellisense.js" />
+    <Content Include="Samples\Autocomplete\MusicScripts.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\jquery-2.1.1.js" />
     <Content Include="Scripts\jquery-2.1.1.min.js" />
     <Content Include="Scripts\jquery-2.1.1.min.map" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.min.js" />
     <Content Include="Scripts\jquery.validate.js" />
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
@@ -278,6 +300,7 @@
     <Content Include="Scripts\mdd_styles.css" />
     <Content Include="Scripts\mdd_toolbar.png" />
     <Content Include="Scripts\modernizr-2.7.2.js" />
+    <Content Include="Scripts\mustache.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.matchmedia.addListener.js" />
     <Content Include="Scripts\respond.matchmedia.addListener.min.js" />
@@ -310,16 +333,18 @@
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Task\CreateTask.cshtml" />
     <Content Include="Views\Home\Post.cshtml" />
-    <Content Include="Views\Post\Post.cshtml" />
     <Content Include="Views\Markdown\Markdown.cshtml" />
     <Content Include="Views\User\Details.cshtml" />
     <Content Include="Views\Task\PostTask.cshtml" />
+    <Content Include="Views\Autocomplete\Index.cshtml" />
+    <Content Include="Views\Autocomplete\_ArtistSearch.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Default\Controllers\" />
     <Folder Include="Areas\Default\Models\" />
     <Folder Include="Areas\Default\Views\Shared\" />
+    <Folder Include="Views\Post\" />
     <Folder Include="Views\Theme\" />
   </ItemGroup>
   <ItemGroup>
@@ -335,6 +360,23 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201408061146229_adfg.resx">
       <DependentUpon>201408061146229_adfg.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201408071216031_apllication_user_in_exernetTask.resx">
+      <DependentUpon>201408071216031_apllication_user_in_exernetTask.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201408071302027_userid.resx">
+      <DependentUpon>201408071302027_userid.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Category.en.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Category.en.Designer.cs</LastGenOutput>
+      <CustomToolNamespace>Resources</CustomToolNamespace>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Category.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Category.Designer.cs</LastGenOutput>
+      <CustomToolNamespace>Resources</CustomToolNamespace>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Resources\Resource.en.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>

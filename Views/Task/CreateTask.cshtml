@@ -5,63 +5,146 @@
 }
 @Scripts.Render("~/bundles/markdownjs")
 @Styles.Render("~/Content/markdown")
+<script src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>
+<script src="~/Scripts/jquery-1.6.2.min.js"></script>
+<script src="~/Scripts/jquery-ui.min.js"></script>
+<script src="~/Scripts/mustache.js"></script>
 
 <h2>Create New Task</h2>
 
-@using (Html.BeginForm("CreateTask", "Task", new { ReturnUrl = "/Home/Index"}, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
-{
-<div class="row">
-    <div class="col-lg-6">
-        <form class="bs-component">
+<script>
+    $("#tagSearch").submit(function (event) {
+        event.preventDefault();
+        var form = $(this);
+        $.getJSON(form.attr("action"), form.serialize(), function (data) {
+            // now what?
+        });
+    });
+</script>
 
-            <div class="form-group">
-                <div class="col-md-10">
-                    @Html.TextBoxFor(m => m.Title, new { @class = "form-control", placeholder="Title?" })
-                    @*<input class="form-control" name="title" type="text" placeholder="Title?" />*@
-                </div>
-            </div>
-
-            <div class="form-group">
-                <div class="col-md-10">
-                    @Html.TextBoxFor(m => m.Category, new { @class = "form-control", placeholder="Category?" })
-                    @*<input class="form-control" name="title" type="text" placeholder="Title?" />*@
-                </div>
-            </div>
-
-            <div class="form-group">
-                <div class="col-md-10">
-                    @Html.TextBoxFor(m => m.Tags, new { @class = "form-control", placeholder="Tags?"})
-                    @*<input class="form-control" name="title" type="text" placeholder="Tags?" />*@
-                </div>
-            </div>
-
-            <div class="form-group">
-                @Html.TextAreaFor(m => m.Text, new { data_provide="markdown", rows="10"})
-                @*<textarea name="content" data-provide="markdown" rows="10" style="resize:none;display:block;"></textarea>*@
-            </div>
-            
-            <label class="checkbox">
-                <input name="publish" type="checkbox"> Publish
-            </label>
-            <hr />
-            
-            <div class="form-group">
-                @*<div class="col-md-offset-2 col-md-10">
-                    <input type="submit" value="Submit" class="btn btn-default" />
-                </div>*@
-                <div class="col-md-offset-2 col-md-10">
-                    <input type="submit" value="Submit" class="btn btn-default" />
-                    @*<li>@Html.ActionLink("CreateTask", "CreateTask", "Task")</li>*@
-                </div>
-            </div>
-            <div class="col-md-12">
-            <div class="panel-body">
-
-          @Html.Raw(System.Web.HttpUtility.HtmlDecode(@MarkdownHelper.Markdown("###EBSDFGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGA\n - wrew\n - fsdfsdf")))
-</div>       
-                </div>   
-        </form>
-    </div>
+<script id="tagTemplate" type="text/html">
+    <ul>
+        {{#tags}}
+        <li>{{Text}}</li>
+        {{/tags}}
+    </ul>
+</script>
+<div id="searchresults">
 </div>
+
+<script>
+    $("#tagSearch").submit(function (event) {
+        event.preventDefault();
+        var form = $(this);
+        $.getJSON(form.attr("action"), form.serialize(), function (data) {
+            var html = Mustache.to_html($("#tagTemplate").html(), { tags: data });
+            $("#searchresults").empty().append(html);
+        });
+    });
+</script>
+
+
+<script>
+    $("#tagSearch").submit(function (event) {
+        event.preventDefault();
+        var form = $(this);
+        $.ajax({
+            url: form.attr("action"),
+            data: form.serialize(),
+            beforeSend: function () {
+                $("#ajax-loader").show();
+            },
+            complete: function () {
+                $("#ajax-loader").hide();
+            },
+            error: searchFailed,
+            success: function (data) {
+                var html = Mustache.to_html($("#tagTemplate").html(),
+                { tags: data });
+                $("#searchresults").empty().append(html);
+            }
+        });
+    });
+</script>
+
+@using (Ajax.BeginForm("TagSearch", "Task",
+new AjaxOptions
+{
+    InsertionMode = InsertionMode.Replace,
+    HttpMethod = "GET",
+    OnFailure = "searchFailed",
+    LoadingElementId = "ajax-loader",
+    UpdateTargetId = "searchresults",
+}))
+{
+    <input type="text" name="q" data-autocomplete-source="@Url.Action("QuickSearch", "Task")" />
+    <input type="submit" value="search" />
+    <img id="ajax-loader"
+         src="~/Content/Images/ajax-loader.gif"
+         style="display:none" />
 }
 
+@*<form id="artistSearch" method="get" action="@Url.Action("ArtistSearch", "Home")">
+        <input type="text" name="q"
+               data-autocomplete-source="@Url.Action("QuickSearch", "Home")" />
+        <input type="submit" value="search" />
+        <img id="ajax-loader" src="~/Content/Images/ajax-loader.gif"
+             style="display:none" />
+    </form>*@
+
+
+
+@*@using (Html.BeginForm("CreateTask", "Task", new { ReturnUrl = "/Home/Index" }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+    {
+        <div class="row">
+            <div class="col-lg-6">
+                <form class="bs-component">
+
+                    <div class="form-group">
+                        @Html.TextBoxFor(m => m.Title, new { @class = "form-control", placeholder = "Title?" })
+                    </div>
+
+                    <div class="row">
+
+                        <div class="col-md-9">
+                            <div class="form-group">
+                                @Html.TextBoxFor(m => m.Tags, new { @class = "form-control", placeholder = "Tags?" })
+                            </div>
+                        </div>
+                        <div class="col-md-3" align="right">
+                                     <div class="form-group">
+                                         @Html.DropDownListFor(m => m.Category, new SelectList(
+                                                new List<Object>{
+                                                new{ value = Resources.Category.Math, text = Resources.Category.Math},
+                                                new{ value = Resources.Category.Cult, text = Resources.Category.Cult},
+                                                new{ value = Resources.Category.Geography, text = Resources.Category.Geography},
+                                                new{ value = Resources.Category.Physics, text = Resources.Category.Physics},
+                                                new{ value = Resources.Category.Chemistry, text = Resources.Category.Chemistry},
+                                                new{ value = Resources.Category.WithoutCategory, text = Resources.Category.WithoutCategory}
+
+                            }, "value", "text", Resources.Category.WithoutCategory), new { @class = "form-control" })
+                                     </div>
+                                 </div>
+
+
+                    </div>
+
+
+
+                    <div class="form-group">
+                        @Html.TextAreaFor(m => m.Text, new { data_provide = "markdown", rows = "10" })
+
+                    </div>
+
+
+
+                    <div class="form-group">
+                        <div class=" col-md-11">
+                            <input type="submit" value="Submit" class="btn btn-success" />
+                        </div>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    }*@>
