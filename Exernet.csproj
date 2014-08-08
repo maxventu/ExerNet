@@ -184,16 +184,15 @@
     <Compile Include="Controllers\CultureController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\TaskController.cs" />
-    <Compile Include="Controllers\PostController.cs" />
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Filters\CultureAttribute.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Code\MarkDownEba.cs" />
-    <Compile Include="Migrations\201408080909054_firstMigration.cs" />
-    <Compile Include="Migrations\201408080909054_firstMigration.Designer.cs">
-      <DependentUpon>201408080909054_firstMigration.cs</DependentUpon>
+    <Compile Include="Migrations\201408080922477_fir.cs" />
+    <Compile Include="Migrations\201408080922477_fir.Designer.cs">
+      <DependentUpon>201408080922477_fir.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\201408080926311_secondMigration.cs" />
     <Compile Include="Migrations\201408080926311_secondMigration.Designer.cs">
@@ -343,8 +342,8 @@
     <None Include="Project_Readme.html" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201408080909054_firstMigration.resx">
-      <DependentUpon>201408080909054_firstMigration.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201408080922477_fir.resx">
+      <DependentUpon>201408080922477_fir.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201408080926311_secondMigration.resx">
       <DependentUpon>201408080926311_secondMigration.cs</DependentUpon>
