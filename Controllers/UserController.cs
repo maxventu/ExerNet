@@ -36,6 +36,7 @@ namespace Exernet.Controllers
         // GET: /User/Details/id
         public ActionResult Details(string id)
         {
+            if (id == null) return RedirectToAction("Index", "Home");
             var user = UserManager.FindByName(id);
             if (user == null) return RedirectToAction("Index", "Home");
             var userInfo = new ShowUserViewModel()
