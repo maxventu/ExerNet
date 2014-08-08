@@ -7,8 +7,15 @@
 <h3>Account page.</h3>
 <hr/>
 <div class="well row">
-    <div class="col-md-2"  >
-        <img class="pic img-circle" src="@Model.ProfileFotoURL" alt="No profile foto found" />
+    <div class="col-md-2">
+        @if (Model.ProfileFotoURL != null) 
+        {
+            <img class="pic img-circle" src="@Model.ProfileFotoURL" alt="No profile foto found" /> 
+        }
+        else
+        {
+            <img class="pic img-circle" src="http://res.cloudinary.com/goodcloud/image/upload/v1407491904/Exernet/blue-user-icon.png" alt="No profile foto found" />
+        }
         
     </div>
     <div class="col-md-4">
@@ -31,7 +38,7 @@
                 <span class="badge">@Model.ResolvedTasksQuantity</span>
                 Solved tasks
             </li>
-            <li class="list-group-item active">
+            <li class="list-group-item">
                 <span class="badge">@Model.Rating</span>
                 Rating
             </li>
@@ -49,7 +56,9 @@
     <div class="tab-pane fade" id="tasks">
         @foreach (var p in @Model.Tasks) 
         { 
-            
+            @p.Text
+            foreach (var im in @p.Images)
+            {<img src="@im.ImageURL"/>}
         }
     </div>
     <div class="tab-pane fade active in" id="solutions">

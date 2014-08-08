@@ -195,6 +195,10 @@
     <Compile Include="Migrations\201408080909054_firstMigration.Designer.cs">
       <DependentUpon>201408080909054_firstMigration.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201408080926311_secondMigration.cs" />
+    <Compile Include="Migrations\201408080926311_secondMigration.Designer.cs">
+      <DependentUpon>201408080926311_secondMigration.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Answer.cs" />
@@ -232,6 +236,7 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\bootstrap-amelia.css" />
     <Content Include="Content\bootstrap-markdown\bootstrap-markdown.fr.js" />
     <Content Include="Content\bootstrap-markdown\bootstrap-markdown.js" />
     <Content Include="Content\bootstrap-markdown\bootstrap-markdown.kr.js" />
@@ -239,8 +244,10 @@
     <Content Include="Content\bootstrap-markdown\bootstrap-markdown.nl.js" />
     <Content Include="Content\bootstrap-markdown\bootstrap-markdown.ru.js" />
     <Content Include="Content\bootstrap-markdown\bootstrap-markdown.ua.js" />
+    <Content Include="Content\bootstrap-superhero.css" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
+    <Content Include="Content\bootstrap-united.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\Images\ajax-loader.gif" />
@@ -338,6 +345,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201408080909054_firstMigration.resx">
       <DependentUpon>201408080909054_firstMigration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201408080926311_secondMigration.resx">
+      <DependentUpon>201408080926311_secondMigration.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Resources\Category.en.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
