@@ -5,9 +5,6 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title - Exercise Network</title>
-    @*@if (HttpContext.Current.Response["theme"] == "dark")
-        {  @Styles.Render("~/Content/darkcss")  }else{  @Styles.Render("~/Content/lightcss") }*@
-
     @Scripts.Render("~/bundles/modernizr")
     
     @if (Request.Cookies["Theme"] != null)
@@ -39,8 +36,7 @@
                     <li>@Html.ActionLink(@Resources.Resource.About, "About", "Home")</li>
                     <li>@Html.ActionLink(@Resources.Resource.Contact, "Contact", "Home")</li>
                     <li>@Html.ActionLink("CreateTask", "CreateTask", "Task")</li>
-                    <li>@Html.ActionLink("Post", "PostTask", "Task")</li>
-                    
+                    <li>@Html.ActionLink("Post", "Post", "Post")</li>
 
                 </ul>
 
@@ -71,9 +67,10 @@
     </div>
     <div class="container body-content">
         @RenderBody()
-        <hr />
-        <footer>
-            <p>&copy; @DateTime.Now.Year - @Resources.Resource.Developerx &amp; @Resources.Resource.Developery</p>
+        <footer class="footer">@*navbar-fixed-bottom btn btn-default btn-xs*@
+            <div class="container ">
+                <p>&copy; @DateTime.Now.Year - @Resources.Resource.Developerx &amp; @Resources.Resource.Developery</p>
+            </div>
         </footer>
     </div>
 

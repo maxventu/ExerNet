@@ -4,13 +4,63 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>@User.Identity.GetUserName() page.</h2>
+<h3>Account page.</h3>
 <hr/>
+<div class="well row">
+    <div class="col-md-2"  >
+        <img class="pic img-circle" src="@Model.ProfileFotoURL" alt="No profile foto found" />
+        
+    </div>
+    <div class="col-md-4">
+        <h2>@Model.UserName</h2>
+        <h4>e-mail: @Model.Email</h4>
+        @Html.ActionLink("Change password", "Manage", "Account", routeValues: null, htmlAttributes: new { title = "Manage", @class = "btn btn-default btn-xs" })
+        <a href="#" class="btn btn-xs btn-primary" style="margin:10px;"><span class="glyphicon glyphicon-picture"></span> Change profile picture</a>
+    </div>
+    <div class="col-md-6">
+        <ul class="list-group">
+            <li class="list-group-item">
+                <span class="badge">@Model.TasksQuantity</span>
+                Number of uploaded tasks
+            </li>
+            <li class="list-group-item">
+                <span class="badge">@Model.SolutionsQuantity</span>
+                Number of trys to solve tasks
+            </li>
+            <li class="list-group-item">
+                <span class="badge">@Model.ResolvedTasksQuantity</span>
+                Solved tasks
+            </li>
+            <li class="list-group-item active">
+                <span class="badge">@Model.Rating</span>
+                Rating
+            </li>
+        </ul>
+    </div>
+</div>
 <div class="row">
-    <div class="col-md-6">
-        <h4>e-mail:@Model.Email</h4>
+    @if (@User.Identity.IsAuthenticated && @Model.UserName.Equals(@User.Identity.Name))
+    {
+<ul class="nav nav-tabs" style="margin-bottom: 15px;">
+  <li class=""><a href="#tasks" data-toggle="tab">Tasks</a></li>
+  <li class=""><a href="#solutions" data-toggle="tab">Solutions</a></li>
+</ul>
+<div id="content" class="tab-content">
+    <div class="tab-pane fade" id="tasks">
+        @foreach (var p in @Model.Tasks) 
+        { 
+            
+        }
     </div>
-    <div class="col-md-6">
-        @Html.ActionLink("Change password", "Manage", "Account", routeValues: null, htmlAttributes: new { title = "Manage" ,@class="btn btn-default btn-xs"})
+    <div class="tab-pane fade active in" id="solutions">
+        @foreach (var p in @Model.Solutions)
+        {
+
+        }
     </div>
+</div>
+    }
+    else 
+    { 
+    }
 </div>
