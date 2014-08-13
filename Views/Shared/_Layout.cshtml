@@ -6,22 +6,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title - Exercise Network</title>
     @Scripts.Render("~/bundles/modernizr")
-    
+
     @if (Request.Cookies["Theme"] != null)
     {
         @Styles.Render(@String.Format("~/Content/{0}css", Request.Cookies["Theme"].Value))
     }
     else
     {
-        @Styles.Render("~/Content/lightcss")  
+        @Styles.Render("~/Content/lightcss")
     }
+   
     <script src="~/Scripts/jquery.js"></script>
+    <script src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>
     <script src="~/Scripts/jquery-ui.js"></script>
     <link rel="stylesheet" href="~/Content/jquery-ui.css">
-    
+
 </head>
 <body>
-    
+
     <div class="navbar navbar-inverse navbar-fixed-top">
         <div class="container">
             <div class="navbar-header">
@@ -38,7 +40,7 @@
                     <li>@Html.ActionLink(@Resources.Resource.About, "About", "Home")</li>
                     <li>@Html.ActionLink(@Resources.Resource.Contact, "Contact", "Home")</li>
                     <li>@Html.ActionLink("CreateTask", "CreateTask", "Task")</li>
-                    <li>@Html.ActionLink("Post", "PostTask", "Task")</li>
+                    <li>@Html.ActionLink("Post", "PostTask/67", "Task")</li>
 
                 </ul>
 
@@ -65,25 +67,26 @@
                     </li>
                 </ul>
             </div>
-</div>
+        </div>
     </div>
     <div class="container body-content">
         @RenderBody()
-        <footer class="footer">@*navbar-fixed-bottom btn btn-default btn-xs*@
-            <div class="container ">
-                <hr/>
-                <p>&copy; @DateTime.Now.Year - @Resources.Resource.Developerx &amp; @Resources.Resource.Developery</p>
-            </div>
-        </footer>
-    </div>
+        <footer class="footer">
+            @*navbar-fixed-bottom btn btn-default btn-xs*@
+        <div class="container ">
+            <hr />
+            <p>&copy; @DateTime.Now.Year - @Resources.Resource.Developerx &amp; @Resources.Resource.Developery</p>
+        </div>
+    </footer>
+</div>
 
-   
-    @Scripts.Render("~/bundles/bootstrap")
-    
-    
-   
-    
 
-    @RenderSection("scripts", required: false)
+@Scripts.Render("~/bundles/bootstrap")
+
+
+
+
+
+@RenderSection("scripts", required: false)
 </body>
 </html>

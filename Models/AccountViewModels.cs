@@ -87,25 +87,27 @@ namespace Exernet.Models
 
     public class ExernetTaskViewModel
     {
+        [Display(Name = "Id")]
+        public int Id { get; set; }
         [Required]
         [Display(Name = "Category")]
         public string Category { get; set; }
 
-        [Required]
+        [Required(ErrorMessage="Введите название.")]
         [Display(Name = "Title")]
         public string Title { get; set; }
 
-        [Required]
+        [Required(ErrorMessage="Опишите задачу.")]
         [Display(Name = "Text")]
         public string Text { get; set; }
 
         // String fields for ICollections 
 
-        [Required]
+        [Required(ErrorMessage="Требуется хотя бы один ответ.")]
         [Display(Name = "Answers")]
         public string Answers { get; set; }
 
-        [Required]
+        [Required(ErrorMessage="Требуется хотя бы один тэг.")]
         [Display(Name = "Tags")]
         public string Tags { get; set; }
 
