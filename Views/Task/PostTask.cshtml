@@ -41,10 +41,33 @@
                         <div><p><span class="glyphicon glyphicon-fire"></span> Category: @Model.Category  </p></div>
                     </div>
                 </div>
+
+                <div class="row">
+                    <div class="col-md-6">
+                        @Html.ActionLink("EditTask", "EditTask", "Task", routeValues: new { id = Model.Id }, htmlAttributes: new { title = "Manage", @class = "btn btn-default btn-xs" })
+                    </div>
+                    <div class="col-md-6" align=right>
+                        @Html.ActionLink("EditTask", "EditTask", "Task", routeValues: new { id = Model.Id }, htmlAttributes: new { title = "Manage", @class = "btn btn-default btn-xs" })
+                    </div>
+                </div>
+
                 <hr>
+
                 <p class="lead">
                     @Html.Raw(System.Web.HttpUtility.HtmlDecode(@MarkdownHelper.Markdown(Model.Text)))
                     <hr>
+
+                    @if (Model.Videos.Count > 0)
+                    {
+                        foreach (var str in Model.Videos.Select(obj => obj.VideoURL))
+                        {
+                            <iframe width="560" height="315" src=@str frameborder="0" allowfullscreen></iframe>
+                            <hr>
+                        }
+                    }
+                    
+                    
+
                     <div class="well">
                         <h4>Leave a Comment:</h4>
                         <form role="form">
@@ -63,5 +86,8 @@
         </div>
         <hr>
     </div>
+
+    
+
 </body>
 </html>

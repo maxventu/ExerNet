@@ -391,6 +391,7 @@
     <Content Include="Views\User\Details.cshtml" />
     <Content Include="Views\Task\PostTask.cshtml" />
     <Content Include="Views\Task\_ShowTaskOnly.cshtml" />
+    <Content Include="Views\Task\EditTask.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
