@@ -193,10 +193,6 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Code\MarkDownEba.cs" />
-    <Compile Include="Migrations\201408081514323_1st.cs" />
-    <Compile Include="Migrations\201408081514323_1st.Designer.cs">
-      <DependentUpon>201408081514323_1st.cs</DependentUpon>
-    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Answer.cs" />
@@ -235,6 +231,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\jquery-ui.css" />
+    <Content Include="Scripts\add-more-pictures.js" />
+    <Content Include="Scripts\ajax-loader.gif" />
+    <Content Include="Scripts\infinite-scrolling.js" />
     <Content Include="Scripts\jquery-ui.js" />
     <Content Include="Scripts\jquery.js" />
     <Content Include="Content\bootstrap-amelia.css" />
@@ -391,6 +390,7 @@
     <Content Include="Views\Home\Post.cshtml" />
     <Content Include="Views\User\Details.cshtml" />
     <Content Include="Views\Task\PostTask.cshtml" />
+    <Content Include="Views\Task\_ShowTaskOnly.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -404,9 +404,6 @@
     <None Include="Project_Readme.html" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201408081514323_1st.resx">
-      <DependentUpon>201408081514323_1st.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Resources\Category.en.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Category.en.Designer.cs</LastGenOutput>
