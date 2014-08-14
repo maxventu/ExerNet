@@ -8,6 +8,7 @@ function addInput() {
 	input.type = "file";
 	input.name = "Images";
 	input.id = count;
+	input.className = "form-control";
 	var button = document.createElement("input");
 	button.type = "button";
 	button.value = "Remove";
