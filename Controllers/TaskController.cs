@@ -61,7 +61,7 @@ namespace Exernet.Controllers
             return RedirectToAction("PostTask", new { id = GetId(model) });
         }
 
-        private string[] parseForVideo(string[] listOfVideos) 
+        private string[] parseForVideo(string[] listOfVideos)
         {
             string pattern = @".+?/?v=";
             string replacement1 = "//www.youtube.com/embed/";
@@ -207,15 +207,86 @@ namespace Exernet.Controllers
 
         }
 
-        public ActionResult SetLike(int id)
+        public ActionResult SetLike(int id, bool likeState)
         {
-            var model = db.Tasks.Find(id);
+            var like = db.Tasks.Find(id).Likes.FirstOrDefault(obj => obj.User.UserName.Equals(User.Identity.Name));
+            if (like == null)
+            {
+                like = new Like();
+                like.Type = likeState;
+                like.UserId = User.Identity.GetUserId();
+                db.Tasks.Find(id).Likes.Add(like);
+                db.Entry(db.Tasks.Find(id).Likes.FirstOrDefault(obj => obj.UserId.Equals(User.Identity.GetUserId()))).State = EntityState.Added;
 
-            return View();
+            }
+            else
+            {
+                if (like.Type == !likeState)
+                {
+                    like.Type = !like.Type;
+                    foreach (var item in db.Tasks.Find(id).Likes)
+                    {
+                        db.Entry(item).State = EntityState.Modified;
+                    }
+                }
+                else
+                {
+                    db.Tasks.Find(id).Likes.Remove(like);
+                    foreach (var item in db.Tasks.Find(id).Likes)
+                    {
+                        db.Entry(item).State = EntityState.Deleted;
+                    }
+                }
+
+            }
+            db.SaveChanges();
+            return PartialView(db.Tasks.Find(id));
         }
 
+        public ActionResult GetTag()
+        {
+            var listOfTags = db.Tags.OrderByDescending(obj => obj.Tasks.Count).Take(25);
+            return PartialView(listOfTags);
+        }
 
+        public ActionResult SolveTask(int id, string solveTry)
+        {
+            var solution = db.Tasks.Find(id).Solutions.FirstOrDefault(obj => obj.User.UserName.Equals(User.Identity.Name));
 
+            var answer = db.Tasks.Find(id).Answers.FirstOrDefault(obj => obj.Text.Equals(solveTry));
+            if (solution == null)
+            {
+                solution = new Solution();
+                solution.UploadDate = DateTime.Now;
+                solution.Correct = false;
+                solution.UserId = User.Identity.GetUserId();
+                db.Tasks.Find(id).Solutions.Add(solution);
+                db.Entry(db.Tasks.Find(id).Solutions.FirstOrDefault(obj => obj.UserId.Equals(User.Identity.GetUserId()))).State = EntityState.Added;
+                db.SaveChanges();
+                solution = db.Tasks.Find(id).Solutions.FirstOrDefault(obj => obj.UserId.Equals(User.Identity.GetUserId()));
+            }
+            if (answer != null)
+            {
+                solution.Correct = true;
+                db.Entry(db.Tasks.Find(id).Solutions.FirstOrDefault(obj => obj.UserId.Equals(User.Identity.GetUserId()))).State = EntityState.Modified;
+                db.SaveChanges();
+            }
+            return PartialView(solution);
+        }
 
+        public ActionResult CheckSolve(int id)
+        {
+            var solution = db.Tasks.Find(id).Solutions.FirstOrDefault(obj => obj.User.UserName.Equals(User.Identity.Name));
+
+                if (solution != null && solution.Correct)
+                {
+                    return PartialView("Solved");
+                }
+                else
+                {
+                    return PartialView("Unsolved", id);
+                }
+            
+        }
     }
 }

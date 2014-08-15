@@ -197,6 +197,30 @@
     <Compile Include="Migrations\201408081514323_1st.Designer.cs">
       <DependentUpon>201408081514323_1st.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201408131551563_like_changes.cs" />
+    <Compile Include="Migrations\201408131551563_like_changes.Designer.cs">
+      <DependentUpon>201408131551563_like_changes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201408131646017_fg.cs" />
+    <Compile Include="Migrations\201408131646017_fg.Designer.cs">
+      <DependentUpon>201408131646017_fg.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201408131702162_324.cs" />
+    <Compile Include="Migrations\201408131702162_324.Designer.cs">
+      <DependentUpon>201408131702162_324.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201408141234332_solution_change.cs" />
+    <Compile Include="Migrations\201408141234332_solution_change.Designer.cs">
+      <DependentUpon>201408141234332_solution_change.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201408141252493_like_changes1.cs" />
+    <Compile Include="Migrations\201408141252493_like_changes1.Designer.cs">
+      <DependentUpon>201408141252493_like_changes1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201408141359066_added_userid.cs" />
+    <Compile Include="Migrations\201408141359066_added_userid.Designer.cs">
+      <DependentUpon>201408141359066_added_userid.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Answer.cs" />
@@ -338,6 +362,7 @@
     <None Include="Scripts\jquery.validate-vsdoc.js" />
     <Content Include="Scripts\jquery-ui-1.10.4.js" />
     <Content Include="Scripts\jquery-ui-1.10.4.min.js" />
+    <Content Include="Scripts\jquery.tagcanvas.min.js" />
     <Content Include="Scripts\jquery.unobtrusive-ajax.js" />
     <Content Include="Scripts\jquery.unobtrusive-ajax.min.js" />
     <Content Include="Scripts\jquery.validate.js" />
@@ -392,6 +417,11 @@
     <Content Include="Views\User\Details.cshtml" />
     <Content Include="Views\Task\PostTask.cshtml" />
     <Content Include="Views\Task\EditTask.cshtml" />
+    <Content Include="Views\Task\SetLike.cshtml" />
+    <Content Include="Views\Task\GetTag.cshtml" />
+    <Content Include="Views\Task\SolveTask.cshtml" />
+    <Content Include="Views\Task\Unsolved.cshtml" />
+    <Content Include="Views\Task\Solved.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -407,6 +437,24 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201408081514323_1st.resx">
       <DependentUpon>201408081514323_1st.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201408131551563_like_changes.resx">
+      <DependentUpon>201408131551563_like_changes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201408131646017_fg.resx">
+      <DependentUpon>201408131646017_fg.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201408131702162_324.resx">
+      <DependentUpon>201408131702162_324.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201408141234332_solution_change.resx">
+      <DependentUpon>201408141234332_solution_change.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201408141252493_like_changes1.resx">
+      <DependentUpon>201408141252493_like_changes1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201408141359066_added_userid.resx">
+      <DependentUpon>201408141359066_added_userid.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Resources\Category.en.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>

@@ -47,7 +47,15 @@
                         @Html.ActionLink("EditTask", "EditTask", "Task", routeValues: new { id = Model.Id }, htmlAttributes: new { title = "Manage", @class = "btn btn-default btn-xs" })
                     </div>
                     <div class="col-md-6" align=right>
-                        @Html.ActionLink("EditTask", "EditTask", "Task", routeValues: new { id = Model.Id }, htmlAttributes: new { title = "Manage", @class = "btn btn-default btn-xs" })
+
+
+                        @Ajax.ActionLink(" ", "SetLike", new { id = Model.Id, likeState = true }, new AjaxOptions { UpdateTargetId = "SetLike" }, new { @class = "glyphicon glyphicon-thumbs-up" })
+                        <div id="SetLike">
+                            @{ Html.RenderPartial("/Views/Task/SetLike.cshtml", Model); }
+                        </div>
+                        @Ajax.ActionLink(" ", "SetLike", new { id = Model.Id, likeState = false }, new AjaxOptions { UpdateTargetId = "SetLike" }, new { @class = "glyphicon glyphicon-thumbs-down" })
+
+
                     </div>
                 </div>
 
@@ -65,7 +73,8 @@
                             <hr>
                         }
                     }
-                    
+                    @Html.Action("CheckSolve", "Task", new { id=Model.Id})
+
                     
 
                     <div class="well">
@@ -83,11 +92,18 @@
                         </a>
                     </div>
             </div>
+
+            <div class="col-lg-4">
+                <div id="GetTag">
+                    @Html.Action("GetTag", "Task")
+                </div>
+
+            </div>
         </div>
         <hr>
     </div>
 
-    
+
 
 </body>
 </html>
