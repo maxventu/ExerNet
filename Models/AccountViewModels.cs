@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Data.Entity;
+using System.Web;
 
 namespace Exernet.Models
 {
@@ -115,9 +116,8 @@ namespace Exernet.Models
         [Display(Name = "Videos")]
         public string Videos { get; set; }
 
-        [Required]
-        [Display(Name = "Images")]
-        public string Images { get; set; }
+        //[Display(Name = "Images")]
+        public IEnumerable<Image> Images { get; set; }
 
         [Required]
         [Display(Name = "Formulas")]

@@ -4,6 +4,8 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
+
+
 <h3>Account page.</h3>
 <hr/>
 <div class="well row">
@@ -76,31 +78,40 @@
     @if (@User.Identity.IsAuthenticated && @Model.UserName.Equals(@User.Identity.Name))
     {
 <ul class="nav nav-tabs" style="margin-bottom: 15px;">
-  <li class=""><a href="#tasks" data-toggle="tab">Tasks</a></li>
+  <li class="active"><a href="#tasks" data-toggle="tab">Tasks</a></li>
   <li class=""><a href="#solutions" data-toggle="tab">Solutions</a></li>
 </ul>
 <div id="content" class="tab-content">
-    <div class="tab-pane fade" id="tasks">
-        @foreach (var p in @Model.Tasks) 
-        { 
-            <div class="panel panel-default">
-              <div class="panel-heading">@p.Title by @Html.ActionLink(p.User.UserName, "Details", "User", routeValues: new { id = p.User.UserName }, htmlAttributes: new { title = String.Format("{0} account page", p.User.UserName) })</div>
-              <div class="panel-body">
-                  @p.Text
-                  @foreach (var im in @p.Images)
-                  {
-                  <img src="@im.ImageURL" width="400" class="img-thumbnail"/>
-                  }
-              </div>
-            </div>
-            <hr/>
-        }
+    <div class="tab-pane fade active in" id="tasks">
+        <div id="postswrapper">
+            @foreach (var p in @Model.Tasks)
+                {
+                @*@Html.Hidden(p.Id.ToString())*@
+                    <div class="item">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">@p.Title by @Html.ActionLink(p.User.UserName, "Details", "User", routeValues: new { id = p.User.UserName }, htmlAttributes: new { title = String.Format("{0} account page", p.User.UserName) })</div>
+                            <div class="panel-body">
+                                @p.Text
+                                @foreach (var im in @p.Images)
+                          {
+                                    <img src="@im.ImageURL" width="400" class="img-thumbnail" />
+                          }
+                            </div>
+                        </div>
+                    </div>
+                }
+            <div id="loadmoreajaxloader" style="display:none;"><center><img src="~/Scripts/ajax-loader.gif" /></center></div>
+        </div>
     </div>
     <div class="tab-pane fade active in" id="solutions">
-        @foreach (var p in @Model.Solutions)
-        {
-
-        }
+        <div id="postswrapper">
+            @foreach (var p in @Model.Solutions)
+                {
+                    <div class="item">
+                    </div>
+                }
+            <div id="loadmoreajaxloader" style="display:none;"><center><img src="~/Scripts/ajax-loader.gif" /></center></div>
+        </div>
     </div>
 </div>
     }
@@ -109,4 +120,5 @@
     }
 </div>
 
+<script src="~/Scripts/infinite-scrolling.js"></script>
 

@@ -1,0 +1,14 @@
+﻿@model Exernet.Models.ExernetTask
+<div class="item">
+    <div class="panel panel-default">
+        <div class="panel-heading">@Model.Title by @Html.ActionLink(Model.User.UserName, "Details", "User", routeValues: new { id = Model.User.UserName }, htmlAttributes: new { title = String.Format("{0} account page", Model.User.UserName) })</div>
+        <div class="panel-body">
+            @Model.Text
+            @foreach (var im in @Model.Images)
+            {
+                <img src="@im.ImageURL" width="400" class="img-thumbnail" />
+            }
+        </div>
+    </div>
+</div>
+

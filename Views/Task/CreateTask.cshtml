@@ -9,34 +9,27 @@
 
 <head>
     <meta charset="utf-8">
-    <title>jQuery UI Autocomplete - Multiple values</title>
-
-
+    <title>Create task</title>
     <script src="~/Scripts/myJava.js"></script>
-
+    <script src="~/Scripts/add-more-pictures.js"></script>
 </head>
 
 <h2>Post Task</h2>
 
-
-
-@using (Html.BeginForm("CreateTask", "Task", new { ReturnUrl = "/Home/Index" }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+@using (Html.BeginForm("CreateTask", "Task", new { ReturnUrl = "/Home/Index" }, FormMethod.Post, new { enctype = "multipart/form-data", @class = "form-horizontal", role = "form" }))
 {
     @Html.ValidationSummary()
     <div class="row">
         <div class="col-lg-6">
-            <form class="bs-component">
-
+            <div class="bs-component">
                 <div class="form-group">
                     @Html.TextBoxFor(m => m.Title, new { @class = "form-control", placeholder = "Title?" })
                 </div>
 
                 <div class="row">
-
                     <div class="col-md-9">
                         <div class="form-group">
                             @Html.TextBoxFor(m => m.Tags, new { @class = "form-control", id="tags", placeholder = "Tags?" })
-                            
                         </div>
                     </div>
                     <div class="col-md-3" align="right">
@@ -53,20 +46,24 @@
                             }, "value", "text", Resources.Category.WithoutCategory), new { @class = "form-control" })
                         </div>
                     </div>
-
-
                 </div>
-
-
 
                 <div class="form-group">
                     @Html.TextAreaFor(m => m.Text, new { data_provide = "markdown", rows = "10" })
                 </div>
 
-                <div class="col-md-12">
-                    <div class="form-group">
-                        @Html.TextBoxFor(m => m.Answers, new { @class = "form-control", placeholder = "Answers?" })
-                    </div>
+                <div class="form-group">
+                    @Html.TextBoxFor(m => m.Answers, new { @class = "form-control", placeholder = "Answers?" })
+                </div>
+
+                @*<div class="form-group">
+                    <input type="file" name="Images[0]" id="Images" />
+                </div>*@
+                
+                <div class="form-group">
+                    <label for="inputs" class="control-label">Add images</label>
+                    <table id="inputs"></table>
+                    <input type="button" class="btn btn-xs btn-default" value="Add one more image" onclick="addInput()">
                 </div>
 
                 <div class="col-md-12">
@@ -80,8 +77,7 @@
                         <input type="submit" value="Submit" class="btn btn-success" />
                     </div>
                 </div>
-
-            </form>
+            </div>
         </div>
     </div>
     

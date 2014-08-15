@@ -9,6 +9,8 @@ using System.Web.Mvc;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 using Exernet.Filters;
+using CloudinaryDotNet;
+using CloudinaryDotNet.Actions;
 using System.Text.RegularExpressions;
 
 namespace Exernet.Controllers
@@ -29,7 +31,7 @@ namespace Exernet.Controllers
         }
 
         [HttpPost]
-        public ActionResult CreateTask(ExernetTaskViewModel model, string returnUrl)
+        public ActionResult CreateTask(ExernetTaskViewModel model,IEnumerable<HttpPostedFileBase> Images, string returnUrl)
         {
             ExernetTask task = new ExernetTask(); ;
             if (model.Id != 0)
@@ -48,6 +50,8 @@ namespace Exernet.Controllers
             task.Block = true;
             task.UserId = User.Identity.GetUserId();
             task.UploadDate = DateTime.Now;
+            task.Images = UploadPicturesOnCloudinary(Images);
+            db.Tasks.Add(task);
             if (model.Id == 0)
             {
                 db.Tasks.Add(task);
@@ -249,6 +253,28 @@ namespace Exernet.Controllers
             return PartialView(listOfTags);
         }
 
+        private List<Image> UploadPicturesOnCloudinary(IEnumerable<HttpPostedFileBase> pictures) 
+        {
+            if (pictures == null) return null;
+            List<Image> PictureUrls = new List<Image>();
+            Cloudinary cloudinary = new Cloudinary(new Account(
+           "goodcloud",
+           "836668373272998",
+           "HJ2Q7oe53Ru7muxKcpVj4ZdqVPQ"));
+            foreach (var pic in pictures)
+            {
+                var uploadParams = new ImageUploadParams()
+                {
+                    File = new FileDescription(pic.FileName, pic.InputStream),
+                    Folder = "Exernet/TaskPictures"
+                };
+
+                var uploadResult = cloudinary.Upload(uploadParams);
+                var uplPath = uploadResult.Uri.AbsoluteUri;
+                PictureUrls.Add(new Image(){ImageURL=uplPath});
+            }
+            return PictureUrls;
+        }
         public ActionResult SolveTask(int id, string solveTry)
         {
             var solution = db.Tasks.Find(id).Solutions.FirstOrDefault(obj => obj.User.UserName.Equals(User.Identity.Name));

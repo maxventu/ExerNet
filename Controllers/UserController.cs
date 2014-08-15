@@ -65,7 +65,7 @@ namespace Exernet.Controllers
         {
             if (fileUpload == null)
             {
-                return View(id);
+                return RedirectToAction("Details", new { id = id });
             }
 
             Cloudinary cloudinary = new Cloudinary(new Account(
