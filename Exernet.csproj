@@ -193,33 +193,9 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Code\MarkDownEba.cs" />
-    <Compile Include="Migrations\201408081514323_1st.cs" />
-    <Compile Include="Migrations\201408081514323_1st.Designer.cs">
-      <DependentUpon>201408081514323_1st.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201408131551563_like_changes.cs" />
-    <Compile Include="Migrations\201408131551563_like_changes.Designer.cs">
-      <DependentUpon>201408131551563_like_changes.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201408131646017_fg.cs" />
-    <Compile Include="Migrations\201408131646017_fg.Designer.cs">
-      <DependentUpon>201408131646017_fg.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201408131702162_324.cs" />
-    <Compile Include="Migrations\201408131702162_324.Designer.cs">
-      <DependentUpon>201408131702162_324.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201408141234332_solution_change.cs" />
-    <Compile Include="Migrations\201408141234332_solution_change.Designer.cs">
-      <DependentUpon>201408141234332_solution_change.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201408141252493_like_changes1.cs" />
-    <Compile Include="Migrations\201408141252493_like_changes1.Designer.cs">
-      <DependentUpon>201408141252493_like_changes1.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201408141359066_added_userid.cs" />
-    <Compile Include="Migrations\201408141359066_added_userid.Designer.cs">
-      <DependentUpon>201408141359066_added_userid.cs</DependentUpon>
+    <Compile Include="Migrations\201408151506269_fst.cs" />
+    <Compile Include="Migrations\201408151506269_fst.Designer.cs">
+      <DependentUpon>201408151506269_fst.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\201408151501233_234.cs" />
     <Compile Include="Migrations\201408151501233_234.Designer.cs">
@@ -449,26 +425,8 @@
     <None Include="Project_Readme.html" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201408081514323_1st.resx">
-      <DependentUpon>201408081514323_1st.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201408131551563_like_changes.resx">
-      <DependentUpon>201408131551563_like_changes.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201408131646017_fg.resx">
-      <DependentUpon>201408131646017_fg.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201408131702162_324.resx">
-      <DependentUpon>201408131702162_324.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201408141234332_solution_change.resx">
-      <DependentUpon>201408141234332_solution_change.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201408141252493_like_changes1.resx">
-      <DependentUpon>201408141252493_like_changes1.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201408141359066_added_userid.resx">
-      <DependentUpon>201408141359066_added_userid.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201408151506269_fst.resx">
+      <DependentUpon>201408151506269_fst.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201408151501233_234.resx">
       <DependentUpon>201408151501233_234.cs</DependentUpon>

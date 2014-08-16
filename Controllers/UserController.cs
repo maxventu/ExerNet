@@ -43,6 +43,7 @@ namespace Exernet.Controllers
             if (id == null) return RedirectToAction("Index", "Home");
             var user = UserManager.FindByName(id);
             if (user == null) return RedirectToAction("Index", "Home");
+            var taskList = GetFewTasksForPartialView(id, 1, 5);
             var userInfo = new ShowUserViewModel()
             {
                 CommentsQuantity = user.Comments.Count,
@@ -51,7 +52,7 @@ namespace Exernet.Controllers
                 ResolvedTasksQuantity = user.Solutions.Count(x => x.Correct),
                 Solutions = user.Solutions,
                 SolutionsQuantity = user.Solutions.Count,
-                Tasks = user.Tasks,
+                Tasks = taskList,
                 TasksQuantity = user.Tasks.Count,
                 ProfileFotoURL=user.ProfileFotoURL,
                 UserName=user.UserName
@@ -171,5 +172,41 @@ namespace Exernet.Controllers
                 return View();
             }
         }
+        public ActionResult ViewListOfTasks(IEnumerable<ExernetTask> Model) {
+            var list = Model.ToList();
+            return PartialView("~/Views/Task/_ShowTaskOnly.cshtml",list);
+        }
+        public List<ExernetTask> GetFewTasksForPartialView(string UserName, int BlockNumber, int BlockSize)
+        {
+            var user = UserManager.FindByName(UserName);
+            int startIndex = (BlockNumber - 1) * BlockSize;
+            return (from p in user.Tasks select p).Skip(startIndex).Take(BlockSize).ToList();
+        }
+        [HttpPost]
+        public ActionResult InfiniteScroll(string UserName, int BlockNumber)
+        {
+            int BlockSize = 5;
+            var tasks = GetFewTasksForPartialView(UserName, BlockNumber, BlockSize);
+            JsonModel jsonModel = new JsonModel();
+            jsonModel.NoMoreData = tasks.Count < BlockSize;
+            jsonModel.HTMLString = RenderPartialViewToString("~/Views/Task/_ShowTaskOnly.cshtml", tasks);
+            return Json(jsonModel);
+        }
+
+        private string RenderPartialViewToString(string viewName, List<ExernetTask> model)
+        {
+            ViewData.Model = model;
+
+            using (StringWriter sw = new StringWriter())
+            {
+                ViewEngineResult viewResult =
+                ViewEngines.Engines.FindPartialView(ControllerContext, viewName);
+                ViewContext viewContext = new ViewContext
+                (ControllerContext, viewResult.View, ViewData, TempData, sw);
+                viewResult.View.Render(viewContext, sw);
+
+                return sw.GetStringBuilder().ToString();
+            }
+        } 
     }
 }

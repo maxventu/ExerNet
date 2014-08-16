@@ -1,14 +1,15 @@
-﻿@model Exernet.Models.ExernetTask
-<div class="item">
+﻿@model List<Exernet.Models.ExernetTask>
+@foreach(var item in Model){
+<div class="item col-md-12">
     <div class="panel panel-default">
-        <div class="panel-heading">@Model.Title by @Html.ActionLink(Model.User.UserName, "Details", "User", routeValues: new { id = Model.User.UserName }, htmlAttributes: new { title = String.Format("{0} account page", Model.User.UserName) })</div>
+        <div class="panel-heading" style="word-break:break-all;">@item.Title by @Html.ActionLink(item.User.UserName, "Details", "User", routeValues: new { id = item.User.UserName }, htmlAttributes: new { title = String.Format("{0} account page", item.User.UserName) })</div>
         <div class="panel-body">
-            @Model.Text
-            @foreach (var im in @Model.Images)
+            @item.Text
+            @foreach (var im in @item.Images)
             {
                 <img src="@im.ImageURL" width="400" class="img-thumbnail" />
             }
         </div>
     </div>
 </div>
-
+}
