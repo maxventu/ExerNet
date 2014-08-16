@@ -314,5 +314,11 @@ namespace Exernet.Controllers
                 }
             
         }
+
+        public List<ExernetTask> GetFewTasksForPartialView(int BlockNumber, int BlockSize)
+        {
+            int startIndex = (BlockNumber - 1) * BlockSize;
+            return null;
+        }
     }
 }

@@ -34,21 +34,22 @@
                         <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
                         <h4 class="modal-title" id="myModalLabel">Upload new profile photo</h4>
                     </div>
-                    <div class="modal-body">
-                        @using (Html.BeginForm("Details", "User", new { id=@User.Identity.Name}, FormMethod.Post, new { enctype = "multipart/form-data" }))
-                        {
-                                <form class="form-group">
-                                    <fieldset>
-                                        <input type="file" name="fileUpload" accept="image/*" class="btn btn-default" title="Choose image" />
-                                        <input type="submit" class="btn btn-success" value="OK" />
-                                    </fieldset>
-                                </form>
-                        }
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-primary">Save changes</button>
-                    </div>
+                    
+                    @using (Html.BeginForm("Details", "User", new { id=@User.Identity.Name}, FormMethod.Post, new { enctype = "multipart/form-data" }))
+                    {
+                        <div class="modal-body">
+                            <form class="form-group">
+                                <fieldset>
+                                    <input type="file" name="fileUpload" accept="image/*" class="btn btn-default" title="Choose image" />
+                                </fieldset>
+                            </form>
+                        </div>
+
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                            <button type="submit" class="btn btn-primary">Save picture</button>
+                        </div>
+                     }
                 </div>
             </div>
         </div>
@@ -84,22 +85,13 @@
 <div id="content" class="tab-content">
     <div class="tab-pane fade active in" id="tasks">
         <div id="postswrapper">
-            @foreach (var p in @Model.Tasks)
+            <a id="@Model.UserName"/>
+            @{Html.RenderAction("ViewListOfTasks", "User", new { Model = Model.Tasks });}
+            @*@Html.Partial("~/Views/Task/_ShowTaskOnly.cshtml", @Model.Tasks.ToList())*@
+            @*@foreach (var p in @Model.Tasks)
                 {
-                @*@Html.Hidden(p.Id.ToString())*@
-                    <div class="item">
-                        <div class="panel panel-default">
-                            <div class="panel-heading">@p.Title by @Html.ActionLink(p.User.UserName, "Details", "User", routeValues: new { id = p.User.UserName }, htmlAttributes: new { title = String.Format("{0} account page", p.User.UserName) })</div>
-                            <div class="panel-body">
-                                @p.Text
-                                @foreach (var im in @p.Images)
-                          {
-                                    <img src="@im.ImageURL" width="400" class="img-thumbnail" />
-                          }
-                            </div>
-                        </div>
-                    </div>
-                }
+                    @Html.Partial("~/Views/Task/_ShowTaskOnly.cshtml", p)
+                }*@
             <div id="loadmoreajaxloader" style="display:none;"><center><img src="~/Scripts/ajax-loader.gif" /></center></div>
         </div>
     </div>

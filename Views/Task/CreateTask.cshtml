@@ -56,26 +56,20 @@
                     @Html.TextBoxFor(m => m.Answers, new { @class = "form-control", placeholder = "Answers?" })
                 </div>
 
-                @*<div class="form-group">
-                    <input type="file" name="Images[0]" id="Images" />
-                </div>*@
-                
                 <div class="form-group">
                     <label for="inputs" class="control-label">Add images</label>
+                </div>
                     <table id="inputs"></table>
+                <div class="form-group">
                     <input type="button" class="btn btn-xs btn-default" value="Add one more image" onclick="addInput()">
                 </div>
 
-                <div class="col-md-12">
-                    <div class="form-group">
-                        @Html.TextBoxFor(m => m.Videos, new { @class = "form-control", placeholder = "Videos links like http://www.youtube.com/embed/WIH79zPH7L0, http://www.youtube.com/embed/WIH79zPH9k0 ?" })
-                    </div>
+                <div class="form-group">
+                    @Html.TextBoxFor(m => m.Videos, new { @class = "form-control", placeholder = "Videos links like http://www.youtube.com/embed/WIH79zPH7L0, http://www.youtube.com/embed/WIH79zPH9k0 ?" })
                 </div>
 
                 <div class="form-group">
-                    <div class=" col-md-11">
-                        <input type="submit" value="Submit" class="btn btn-success" />
-                    </div>
+                    <input type="submit" value="Submit" class="btn btn-success" />
                 </div>
             </div>
         </div>

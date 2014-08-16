@@ -23,7 +23,7 @@ function addInput() {
 		table.deleteRow(i);
 	}
 	var container = document.createElement("div");
-	container.className = "input-group";
+	container.className = "form-group input-group";
 	var picImgSpan = document.createElement("span");
 	picImgSpan.className = "input-group-addon";
 	var picImg = document.createElement("div");
