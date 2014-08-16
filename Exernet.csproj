@@ -402,6 +402,7 @@
     <Content Include="Views\Task\SolveTask.cshtml" />
     <Content Include="Views\Task\Unsolved.cshtml" />
     <Content Include="Views\Task\Solved.cshtml" />
+    <Content Include="Views\Task\_ShowOneTask.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
