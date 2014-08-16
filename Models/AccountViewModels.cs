@@ -112,18 +112,15 @@ namespace Exernet.Models
         [Display(Name = "Tags")]
         public string Tags { get; set; }
 
-        [Required]
         [Display(Name = "Videos")]
         public string Videos { get; set; }
 
         //[Display(Name = "Images")]
         public IEnumerable<Image> Images { get; set; }
 
-        [Required]
         [Display(Name = "Formulas")]
         public string Formulas { get; set; }
 
-        [Required]
         [Display(Name = "Charts")]
         public string Charts { get; set; }
 

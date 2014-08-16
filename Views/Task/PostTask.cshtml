@@ -61,37 +61,65 @@
 
                 <hr>
 
-                <p class="lead">
-                    @Html.Raw(System.Web.HttpUtility.HtmlDecode(@MarkdownHelper.Markdown(Model.Text)))
-                    <hr>
+               
 
-                    @if (Model.Videos.Count > 0)
+                <div class="row">
+                    <div class="col-md-12" style="word-break:break-all">
+                       <p>@Html.Raw(System.Web.HttpUtility.HtmlDecode(@MarkdownHelper.Markdown(Model.Text)))</p> 
+                    </div>
+
+                </div>
+
+                <hr>
+
+                @if (Model.Videos.Count > 0)
+                {
+                    foreach (var str in Model.Videos.Select(obj => obj.VideoURL))
                     {
-                        foreach (var str in Model.Videos.Select(obj => obj.VideoURL))
-                        {
-                            <iframe width="560" height="315" src=@str frameborder="0" allowfullscreen></iframe>
-                            <hr>
-                        }
+                        <iframe width="560" height="315" src=@str frameborder="0" allowfullscreen></iframe>
+                        <hr>
                     }
-                    @Html.Action("CheckSolve", "Task", new { id=Model.Id})
+                }
 
-                    
+                @Html.Action("CheckSolve", "Task", new { id = Model.Id })
 
+
+
+                @using (Ajax.BeginForm("LeaveComment", new { id = Model.Id }, new AjaxOptions
+                    {
+                        UpdateTargetId = "comment",
+                        InsertionMode = InsertionMode.InsertBefore
+                    }))
+                {
                     <div class="well">
                         <h4>Leave a Comment:</h4>
                         <form role="form">
                             <div class="form-group">
-                                <textarea class="form-control" rows="3"></textarea>
+                                <textarea class="form-control" name="commentText" rows="3"></textarea>
                             </div>
-                            <button type="submit" class="btn btn-primary">Submit</button>
+                            <button type="submit" value="Comment" class="btn btn-primary">Submit</button>
                         </form>
                     </div>
-                    <hr>
-                    <div class="media">
-                        <a class="pull-left" href="#">
-                        </a>
-                    </div>
+                }
+                <hr>
+                <div class="media" id="comment">
+                    <a class="pull-left" href="#">
+                    </a>
+                </div>
+
+                @foreach (var comment in Model.Comments)
+                {
+                    Html.RenderPartial("/Views/Task/Comment.cshtml", comment);
+                }
+
+
             </div>
+
+
+
+
+
+
 
             <div class="col-lg-4">
                 <div id="GetTag">

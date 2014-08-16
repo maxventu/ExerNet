@@ -31,7 +31,7 @@ namespace Exernet.Controllers
         }
 
         [HttpPost]
-        public ActionResult CreateTask(ExernetTaskViewModel model,IEnumerable<HttpPostedFileBase> Images, string returnUrl)
+        public ActionResult CreateTask(ExernetTaskViewModel model, IEnumerable<HttpPostedFileBase> Images, string returnUrl)
         {
             ExernetTask task = new ExernetTask(); ;
             if (model.Id != 0)
@@ -50,11 +50,11 @@ namespace Exernet.Controllers
             task.Block = true;
             task.UserId = User.Identity.GetUserId();
             task.UploadDate = DateTime.Now;
-            task.Images = UploadPicturesOnCloudinary(Images);
-            db.Tasks.Add(task);
             if (model.Id == 0)
             {
+                task.Images = UploadPicturesOnCloudinary(Images);
                 db.Tasks.Add(task);
+                db.Entry(task).State = EntityState.Added;
             }
             else
             {
@@ -78,16 +78,23 @@ namespace Exernet.Controllers
         }
         private ICollection<Video> GenerateVideosForTaskModel(string p)
         {
-            string[] listOfVideos = SplitString(p);
-            listOfVideos = parseForVideo(listOfVideos);
-            List<Video> Videos = new List<Video>();
-            foreach (var str in listOfVideos)
+            if ((p != null) && p.Length > 0)
             {
-                var Video = new Video();
-                Video.VideoURL = str;
-                Videos.Add(Video);
+                string[] listOfVideos = SplitString(p);
+                listOfVideos = parseForVideo(listOfVideos);
+                List<Video> Videos = new List<Video>();
+                foreach (var str in listOfVideos)
+                {
+                    var Video = new Video();
+                    Video.VideoURL = str;
+                    Videos.Add(Video);
+                }
+                return Videos;
             }
-            return Videos;
+            else
+            {
+                return null;
+            }
         }
 
         private int GetId(ExernetTaskViewModel model)
@@ -253,7 +260,7 @@ namespace Exernet.Controllers
             return PartialView(listOfTags);
         }
 
-        private List<Image> UploadPicturesOnCloudinary(IEnumerable<HttpPostedFileBase> pictures) 
+        private List<Image> UploadPicturesOnCloudinary(IEnumerable<HttpPostedFileBase> pictures)
         {
             if (pictures == null) return null;
             List<Image> PictureUrls = new List<Image>();
@@ -271,7 +278,7 @@ namespace Exernet.Controllers
 
                 var uploadResult = cloudinary.Upload(uploadParams);
                 var uplPath = uploadResult.Uri.AbsoluteUri;
-                PictureUrls.Add(new Image(){ImageURL=uplPath});
+                PictureUrls.Add(new Image() { ImageURL = uplPath });
             }
             return PictureUrls;
         }
@@ -304,15 +311,36 @@ namespace Exernet.Controllers
         {
             var solution = db.Tasks.Find(id).Solutions.FirstOrDefault(obj => obj.User.UserName.Equals(User.Identity.Name));
 
-                if (solution != null && solution.Correct)
-                {
-                    return PartialView("Solved");
-                }
-                else
-                {
-                    return PartialView("Unsolved", id);
-                }
-            
+            if (solution != null && solution.Correct)
+            {
+                return PartialView("Solved");
+            }
+            else
+            {
+                return PartialView("Unsolved", id);
+            }
+
+        }
+
+        public ActionResult LeaveComment(int id, string commentText)
+        {
+            var comment = new Comment();
+            comment.Date = DateTime.Now;
+            comment.Text = commentText;
+            comment.UserId = User.Identity.GetUserId();
+            db.Tasks.Find(id).Comments.Add(comment);
+
+
+            db.Entry(db.Tasks.Find(id).Comments.FirstOrDefault(obj => obj.UserId.Equals(User.Identity.GetUserId()) && obj.Date.Equals(comment.Date))).State = EntityState.Added;
+            db.SaveChanges();
+            var c = db.Comments.Include("User").FirstOrDefault(obj => obj.Id == comment.Id);
+
+            return PartialView("Comment", c);
+        }
+
+        public ActionResult SaveFormula(string formulaURL) 
+        {
+            return PartialView("Formula");
         }
 
         public List<ExernetTask> GetFewTasksForPartialView(int BlockNumber, int BlockSize)
