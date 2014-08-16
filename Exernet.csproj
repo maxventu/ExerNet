@@ -193,10 +193,6 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Code\MarkDownEba.cs" />
-    <Compile Include="Migrations\201408151506269_fst.cs" />
-    <Compile Include="Migrations\201408151506269_fst.Designer.cs">
-      <DependentUpon>201408151506269_fst.cs</DependentUpon>
-    </Compile>
     <Compile Include="Migrations\201408151501233_234.cs" />
     <Compile Include="Migrations\201408151501233_234.Designer.cs">
       <DependentUpon>201408151501233_234.cs</DependentUpon>
@@ -425,9 +421,6 @@
     <None Include="Project_Readme.html" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201408151506269_fst.resx">
-      <DependentUpon>201408151506269_fst.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201408151501233_234.resx">
       <DependentUpon>201408151501233_234.cs</DependentUpon>
     </EmbeddedResource>
