@@ -221,6 +221,14 @@
     <Compile Include="Migrations\201408141359066_added_userid.Designer.cs">
       <DependentUpon>201408141359066_added_userid.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201408151501233_234.cs" />
+    <Compile Include="Migrations\201408151501233_234.Designer.cs">
+      <DependentUpon>201408151501233_234.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201408151617556_sd.cs" />
+    <Compile Include="Migrations\201408151617556_sd.Designer.cs">
+      <DependentUpon>201408151617556_sd.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Answer.cs" />
@@ -426,6 +434,8 @@
     <Content Include="Views\Task\SolveTask.cshtml" />
     <Content Include="Views\Task\Unsolved.cshtml" />
     <Content Include="Views\Task\Solved.cshtml" />
+    <Content Include="Views\Task\Comment.cshtml" />
+    <Content Include="Views\Task\Formula.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -459,6 +469,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201408141359066_added_userid.resx">
       <DependentUpon>201408141359066_added_userid.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201408151501233_234.resx">
+      <DependentUpon>201408151501233_234.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201408151617556_sd.resx">
+      <DependentUpon>201408151617556_sd.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Resources\Category.en.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>

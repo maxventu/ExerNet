@@ -9,13 +9,10 @@ namespace Exernet.Models
     public class Comment {
         [Key]
         public int Id { get; set; }
-        [Required]
         public ExernetTask Task { get; set; }
-        [Required]
-        public virtual ICollection<ApplicationUser> User { get; set; }
-        [Required]
+        public string UserId { get; set; }
+        public virtual ApplicationUser User { get; set; }
         public DateTime Date { get; set; }
-        [Required]
         public string Text { get; set; }
     }
 }
