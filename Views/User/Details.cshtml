@@ -23,9 +23,10 @@
     <div class="col-md-4">
         <h2>@Model.UserName</h2>
         <h4>e-mail: @Model.Email</h4>
+        @if (@User.Identity.IsAuthenticated && @Model.UserName.Equals(@User.Identity.Name))
+        {
         @Html.ActionLink("Change password", "Manage", "Account", routeValues: null, htmlAttributes: new { title = "Manage", @class = "btn btn-default btn-xs" })
         <div class="btn btn-xs btn-primary" style="margin:10px;" data-toggle="modal" data-target="#myModal"><span class="glyphicon glyphicon-picture"></span> Change profile picture</div>
-
         <!-- Modal -->
         <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
             <div class="modal-dialog">
@@ -53,6 +54,7 @@
                 </div>
             </div>
         </div>
+        }
     </div>
     <div class="col-md-6">
         <ul class="list-group">
@@ -87,11 +89,6 @@
         <div id="postswrapper">
             <a id="@Model.UserName"/>
             @{Html.RenderAction("ViewListOfTasks", "User", new { Model = Model.Tasks });}
-            @*@Html.Partial("~/Views/Task/_ShowTaskOnly.cshtml", @Model.Tasks.ToList())*@
-            @*@foreach (var p in @Model.Tasks)
-                {
-                    @Html.Partial("~/Views/Task/_ShowTaskOnly.cshtml", p)
-                }*@
             <div id="loadmoreajaxloader" style="display:none;"><center><img src="~/Scripts/ajax-loader.gif" /></center></div>
         </div>
     </div>
@@ -109,6 +106,15 @@
     }
     else 
     { 
+        <h2>Tasks</h2>
+        <hr/>
+        <div class="tab-pane fade active in" id="tasks">
+        <div id="postswrapper">
+            <a id="@Model.UserName"/>
+            @{Html.RenderAction("ViewListOfTasks", "User", new { Model = Model.Tasks });}
+            <div id="loadmoreajaxloader" style="display:none;"><center><img src="~/Scripts/ajax-loader.gif" /></center></div>
+        </div>
+    </div>
     }
 </div>
 

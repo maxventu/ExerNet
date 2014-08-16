@@ -406,6 +406,7 @@
     <Content Include="Views\Task\SolveTask.cshtml" />
     <Content Include="Views\Task\Unsolved.cshtml" />
     <Content Include="Views\Task\Solved.cshtml" />
+    <Content Include="Views\Task\_ShowOneTask.cshtml" />
     <Content Include="Views\Task\Comment.cshtml" />
     <Content Include="Views\Task\Formula.cshtml" />
   </ItemGroup>
