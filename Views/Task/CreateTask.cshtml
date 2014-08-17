@@ -7,14 +7,14 @@
 @Styles.Render("~/Content/markdown")
 
 
-<head>
-    <meta charset="utf-8">
     <title>Create task</title>
     <script src="~/Scripts/myJava.js"></script>
     <script src="~/Scripts/add-more-pictures.js"></script>
-</head>
+    <script src="~/Content/bootstrap-markdown/bootstrap-markdown.ru.js"></script>
 
-<h2>Post Task</h2>
+  
+
+<h2>@Resources.Resource.CreateTask</h2>
 <div class="row">
     <div class="col-lg-6">
 
@@ -23,13 +23,13 @@
             @Html.ValidationSummary()
             <div class="bs-component">
                 <div class="form-group">
-                    @Html.TextBoxFor(m => m.Title, new { @class = "form-control", placeholder = "Title?" })
+                    @Html.TextBoxFor(m => m.Title, new { @class = "form-control", placeholder = Resources.Resource.TitlePlaceholder })
                 </div>
 
                 <div class="row">
                     <div class="col-md-9">
                         <div class="form-group">
-                            @Html.TextBoxFor(m => m.Tags, new { @class = "form-control", id = "tags", placeholder = "Tags?" })
+                            @Html.TextBoxFor(m => m.Tags, new { @class = "form-control", id = "tags", placeholder = Resources.Resource.TagsPlaceholder })
                         </div>
                     </div>
                     <div class="col-md-3" align="right">
@@ -48,12 +48,13 @@
                     </div>
                 </div>
 
+                
                 <div class="form-group">
                     @Html.TextAreaFor(m => m.Text, new { data_provide = "markdown", rows = "10" })
                 </div>
 
                 <div class="form-group">
-                    @Html.TextBoxFor(m => m.Answers, new { @class = "form-control", placeholder = "Answers?" })
+                    @Html.TextBoxFor(m => m.Answers, new { @class = "form-control", placeholder = Resources.Resource.AnswersPlaceholder })
                 </div>
 
                 @*<div class="form-group">
@@ -61,19 +62,19 @@
                     </div>*@
 
                 <div class="form-group">
-                    <label for="inputs" class="control-label">Add images</label>
+                    <label for="inputs" class="control-label">@Resources.Resource.AddImages</label>
                 </div>
                     <table id="inputs"></table>
                 <div class="form-group">
-                    <input type="button" class="btn btn-xs btn-default" value="Add one more image" onclick="addInput()">
+                    <input type="button" class="btn btn-xs btn-default" value=@Resources.Resource.AddMoreImage onclick="addInput()">
                 </div>
 
                 <div class="form-group">
-                    @Html.TextBoxFor(m => m.Videos, new { @class = "form-control", placeholder = "Videos links like http://www.youtube.com/embed/WIH79zPH7L0, http://www.youtube.com/embed/WIH79zPH9k0 ?" })
+                    @Html.TextBoxFor(m => m.Videos, new { @class = "form-control", placeholder = Resources.Resource.VideosPlaceholder })
                 </div>
 
                 <div class="form-group">
-                    <input type="submit" value="Submit" class="btn btn-success" />
+                    <input type="submit" value=@Resources.Resource.Submit class="btn btn-success" />
                 </div>
             </div>
 

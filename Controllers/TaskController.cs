@@ -348,5 +348,11 @@ namespace Exernet.Controllers
             int startIndex = (BlockNumber - 1) * BlockSize;
             return null;
         }
+
+        public ActionResult FullTextSearching(string searchText) 
+        {
+           
+            return View();
+        }
     }
 }

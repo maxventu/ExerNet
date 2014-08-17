@@ -388,7 +388,6 @@
     <Content Include="Views\Account\Register.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Task\CreateTask.cshtml" />
-    <Content Include="Views\Home\Post.cshtml" />
     <Content Include="Views\User\Details.cshtml" />
     <Content Include="Views\Task\PostTask.cshtml" />
     <Content Include="Views\Task\_ShowTaskOnly.cshtml" />
@@ -401,6 +400,7 @@
     <Content Include="Views\Task\Comment.cshtml" />
     <Content Include="Views\Task\Formula.cshtml" />
     <Content Include="Views\Shared\_ShowImagesWithZoom.cshtml" />
+    <Content Include="Views\Task\FullTextSearching.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

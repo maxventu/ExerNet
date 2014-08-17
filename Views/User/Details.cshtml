@@ -4,8 +4,8 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Account page.</h2>
-<hr/>
+<h3>@Resources.Resource.AccountPage</h3>
+<hr />
 <div class="well row">
     <div class="col-md-2">
         @if (Model.ProfileFotoURL != null) 
@@ -22,15 +22,15 @@
         <h4>e-mail: @Model.Email</h4>
         @if (@User.Identity.IsAuthenticated && @Model.UserName.Equals(@User.Identity.Name))
         {
-        @Html.ActionLink("Change password", "Manage", "Account", routeValues: null, htmlAttributes: new { title = "Manage", @class = "btn btn-default btn-xs" })
-        <div class="btn btn-xs btn-primary" style="margin:10px;" data-toggle="modal" data-target="#myModal"><span class="glyphicon glyphicon-picture"></span> Change profile picture</div>
+        @Html.ActionLink(Resources.Resource.ChangePassword, "Manage", "Account", routeValues: null, htmlAttributes: new { title = "Manage", @class = "btn btn-default btn-xs" })
+        <div class="btn btn-xs btn-primary" style="margin:10px;" data-toggle="modal" data-target="#myModal"><span class="glyphicon glyphicon-picture"></span> @Resources.Resource.ChangeProfilePicture</div>
         <!-- Modal -->
         <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-                        <h4 class="modal-title" id="myModalLabel">Upload new profile photo</h4>
+                        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">@Resources.Resource.Close</span></button>
+                        <h4 class="modal-title" id="myModalLabel">@Resources.Resource.UploadNewPhoto</h4>
                     </div>
                     
                     @using (Html.BeginForm("Details", "User", new { id = @User.Identity.Name }, FormMethod.Post, new { enctype = "multipart/form-data" }))
@@ -43,7 +43,6 @@
                                         </fieldset>
                                     </form>
                                 </div>
-
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                                     <input type="submit" class="btn btn-success" value="Save picture" />
@@ -59,19 +58,19 @@
         <ul class="list-group">
             <li class="list-group-item">
                 <span class="badge">@Model.TasksQuantity</span>
-                Number of uploaded tasks
+               @Resources.Resource.NumberOfUploadTasks
             </li>
             <li class="list-group-item">
                 <span class="badge">@Model.SolutionsQuantity</span>
-                Number of trys to solve tasks
+                @Resources.Resource.NumberOfTry
             </li>
             <li class="list-group-item">
                 <span class="badge">@Model.ResolvedTasksQuantity</span>
-                Solved tasks
+                @Resources.Resource.SolvedTasks
             </li>
             <li class="list-group-item">
                 <span class="badge">@Model.Rating</span>
-                Rating
+                @Resources.Resource.Rating
             </li>
         </ul>
     </div>
@@ -124,7 +123,7 @@
     }
     else 
     { 
-        <h2>Tasks</h2>
+        <h2>@Resources.Resource.Tasks</h2>
         <hr/>
         <div class="tab-pane fade active in" id="tasks">
             <div id="postswrapper">
