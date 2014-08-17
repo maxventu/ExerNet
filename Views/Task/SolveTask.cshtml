@@ -4,13 +4,13 @@
 {
     <div class="alert alert-info">
         @Html.Action("CheckSolve", "Task", new { id = Model.Task.Id })
-        Sorry! You solution is wrong.
+        @Resources.Resource.WrongSolve
     </div>
 }
 else
 {
     <div class="alert alert-success">
-  Well done! You have solved this task.
+  @Resources.Resource.YouSolve
 </div>
 }
 

@@ -94,21 +94,21 @@ namespace Exernet.Models
         [Display(Name = "Category")]
         public string Category { get; set; }
 
-        [Required(ErrorMessage="Введите название.")]
+        [Required(ErrorMessage = "Введите название.")]
         [Display(Name = "Title")]
         public string Title { get; set; }
 
-        [Required(ErrorMessage="Опишите задачу.")]
+        [Required(ErrorMessage = "Опишите задачу.")]
         [Display(Name = "Text")]
         public string Text { get; set; }
 
         // String fields for ICollections 
 
-        [Required(ErrorMessage="Требуется хотя бы один ответ.")]
+        [Required(ErrorMessage = "Требуется хотя бы один ответ.")]
         [Display(Name = "Answers")]
         public string Answers { get; set; }
 
-        [Required(ErrorMessage="Требуется хотя бы один тэг.")]
+        [Required(ErrorMessage = "Требуется хотя бы один тэг.")]
         [Display(Name = "Tags")]
         public string Tags { get; set; }
 

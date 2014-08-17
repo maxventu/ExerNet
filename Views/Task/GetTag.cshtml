@@ -30,22 +30,25 @@
 </head>
 <body>
     <div id="myCanvasContainer">
-        <canvas width="450" height="450" id="myCanvas">
+        <canvas width="440" height="440" id="myCanvas">
             <p>Anything in here will be replaced on browsers that support the canvas element</p>
         </canvas>
     </div>
     <div id="tags" style="font-size: 50%">
+
         
-        @foreach (Exernet.Models.Tag tag in Model) 
+        @{ var size = (float)Model.Count()*40;}
+
+        @foreach (Exernet.Models.Tag tag in Model)
         {
-            {
-                var size = (float)tag.Tasks.Count*3;
-                
-            <a href="#" style="font-size: @(size)ex">@tag.Text</a>
-            }
+
+            <a href="#" style="font-size: @(size)%">@tag.Text</a>
             
-        
+            size =  size - 30;
         }
+
+
+        
     </div>
 
 
@@ -69,49 +72,49 @@
 
 
 
-    @*@model IQueryable<Exernet.Models.Tag>
+@*@model IQueryable<Exernet.Models.Tag>
 
-<head>
-    <script src="~/Scripts/jquery.tagcanvas.min.js" type="text/javascript"></script>
-    <script type="text/javascript">
-        $(document).ready(function () {
-            if (!$('#myCanvas').tagcanvas({
-                outlineColour: '#ff00ff',
-                reverse: true,
-                depth: 0.8,
-                maxSpeed: 0.05,
-                textFont: null,
-                textColour: null,
-                weightMode: 'both',
-                weight: true,
-                weightGradient: {
-     0: '#f00', // red
-                //0.33: '#ff0', // yellow
-                //0.66: '#0f0', // green
-     1: '#00f'  // blue
-            }
-            }, 'tags')) {
-                // something went wrong, hide the canvas container
-                $('#myCanvasContainer').hide();
-            }
-        });
-    </script>
-</head>
-<body>
-    <div id="myCanvasContainer" >
-        <canvas width="300" height="300" id="myCanvas">
-            <p>Anything in here will be replaced on browsers that support the canvas element</p>
-        </canvas>
-    </div>
-    <div id="tags" style="font-size: 50%">
-        <ul>
-            @foreach (Exernet.Models.Tag tag in Model)
-            {
-                <li><a style="font-size: 5ex">@tag.Text</a></li>
-            }
+    <head>
+        <script src="~/Scripts/jquery.tagcanvas.min.js" type="text/javascript"></script>
+        <script type="text/javascript">
+            $(document).ready(function () {
+                if (!$('#myCanvas').tagcanvas({
+                    outlineColour: '#ff00ff',
+                    reverse: true,
+                    depth: 0.8,
+                    maxSpeed: 0.05,
+                    textFont: null,
+                    textColour: null,
+                    weightMode: 'both',
+                    weight: true,
+                    weightGradient: {
+         0: '#f00', // red
+                    //0.33: '#ff0', // yellow
+                    //0.66: '#0f0', // green
+         1: '#00f'  // blue
+                }
+                }, 'tags')) {
+                    // something went wrong, hide the canvas container
+                    $('#myCanvasContainer').hide();
+                }
+            });
+        </script>
+    </head>
+    <body>
+        <div id="myCanvasContainer" >
+            <canvas width="300" height="300" id="myCanvas">
+                <p>Anything in here will be replaced on browsers that support the canvas element</p>
+            </canvas>
+        </div>
+        <div id="tags" style="font-size: 50%">
+            <ul>
+                @foreach (Exernet.Models.Tag tag in Model)
+                {
+                    <li><a style="font-size: 5ex">@tag.Text</a></li>
+                }
 
 
 
-        </ul>
-    </div>
-</body>*@
+            </ul>
+        </div>
+    </body>*@

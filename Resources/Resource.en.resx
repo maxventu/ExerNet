@@ -192,4 +192,7 @@
   <data name="ThemeLight" xml:space="preserve">
     <value>Light</value>
   </data>
+  <data name="TitlePlaceholder" xml:space="preserve">
+    <value>Title?</value>
+  </data>
 </root>

@@ -22,7 +22,7 @@
                 <div class="row">
                     <div class="col-md-8">
                         <p class="lead">
-                            by @Html.ActionLink(Model.User.UserName, "Details", "User", routeValues: new { id = Model.User.UserName }, htmlAttributes: new { title = String.Format("{0} account page", Model.User.UserName) })
+                            @Resources.Resource.By @Html.ActionLink(Model.User.UserName, "Details", "User", routeValues: new { id = Model.User.UserName }, htmlAttributes: new { title = String.Format("{0} account page", Model.User.UserName) })
                         </p>
                     </div>
                     <div class="col-md-4" align="right">
@@ -35,16 +35,16 @@
                 </div>
                 <div class="row">
                     <div class="col-md-8">
-                        <div><p><span class="glyphicon glyphicon-time"></span> Posted on @Model.UploadDate </p></div>
+                        <div><p><span class="glyphicon glyphicon-time"></span> @Resources.Resource.PostedOn @Model.UploadDate </p></div>
                     </div>
                     <div class="col-md-4" align="right">
-                        <div><p><span class="glyphicon glyphicon-fire"></span> Category: @Model.Category  </p></div>
+                        <div><p><span class="glyphicon glyphicon-fire"></span> @Resources.Category.CategoryOfTask: @Model.Category  </p></div>
                     </div>
                 </div>
 
                 <div class="row">
                     <div class="col-md-6">
-                        @Html.ActionLink("EditTask", "EditTask", "Task", routeValues: new { id = Model.Id }, htmlAttributes: new { title = "Manage", @class = "btn btn-default btn-xs" })
+                        @Html.ActionLink(Resources.Resource.Edit, "EditTask", "Task", routeValues: new { id = Model.Id }, htmlAttributes: new { title = "Manage", @class = "btn btn-default btn-xs" })
                     </div>
                     <div class="col-md-6" align=right>
 
@@ -92,12 +92,12 @@
                     }))
                 {
                     <div class="well">
-                        <h4>Leave a Comment:</h4>
+                        <h4>@Resources.Resource.LeaveComment:</h4>
                         <form role="form">
                             <div class="form-group">
                                 <textarea class="form-control" name="commentText" rows="3"></textarea>
                             </div>
-                            <button type="submit" value="Comment" class="btn btn-primary">Submit</button>
+                            <button type="submit" value="Comment" class="btn btn-primary">@Resources.Resource.Submit</button>
                         </form>
                     </div>
                 }
