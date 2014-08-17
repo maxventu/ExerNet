@@ -193,17 +193,13 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Code\MarkDownEba.cs" />
-    <Compile Include="Migrations\201408151506269_fst.cs" />
-    <Compile Include="Migrations\201408151506269_fst.Designer.cs">
-      <DependentUpon>201408151506269_fst.cs</DependentUpon>
+    <Compile Include="Migrations\201408161327283_onemore.cs" />
+    <Compile Include="Migrations\201408161327283_onemore.Designer.cs">
+      <DependentUpon>201408161327283_onemore.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201408151501233_234.cs" />
-    <Compile Include="Migrations\201408151501233_234.Designer.cs">
-      <DependentUpon>201408151501233_234.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201408151617556_sd.cs" />
-    <Compile Include="Migrations\201408151617556_sd.Designer.cs">
-      <DependentUpon>201408151617556_sd.cs</DependentUpon>
+    <Compile Include="Migrations\201408171611575_fst.cs" />
+    <Compile Include="Migrations\201408171611575_fst.Designer.cs">
+      <DependentUpon>201408171611575_fst.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -410,9 +406,9 @@
     <Content Include="Views\Task\SolveTask.cshtml" />
     <Content Include="Views\Task\Unsolved.cshtml" />
     <Content Include="Views\Task\Solved.cshtml" />
-    <Content Include="Views\Task\_ShowOneTask.cshtml" />
     <Content Include="Views\Task\Comment.cshtml" />
     <Content Include="Views\Task\Formula.cshtml" />
+    <Content Include="Views\Shared\_ShowImagesWithZoom.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -426,14 +422,11 @@
     <None Include="Project_Readme.html" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201408151506269_fst.resx">
-      <DependentUpon>201408151506269_fst.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201408161327283_onemore.resx">
+      <DependentUpon>201408161327283_onemore.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201408151501233_234.resx">
-      <DependentUpon>201408151501233_234.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201408151617556_sd.resx">
-      <DependentUpon>201408151617556_sd.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201408171611575_fst.resx">
+      <DependentUpon>201408171611575_fst.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Resources\Category.en.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>

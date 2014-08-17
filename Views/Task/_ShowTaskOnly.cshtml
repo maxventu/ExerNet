@@ -1,13 +1,55 @@
-﻿@model List<Exernet.Models.ExernetTask>
+﻿@using Microsoft.AspNet.Identity
+@model List<Exernet.Models.ExernetTask>
 @foreach(var item in Model){
     <div class="item col-md-12">
     <div class="panel panel-default">
-        <div class="panel-heading" style="word-break:break-all;">@item.Title by @Html.ActionLink(item.User.UserName, "Details", "User", routeValues: new { id = item.User.UserName }, htmlAttributes: new { title = String.Format("{0} account page", item.User.UserName) })</div>
-        <div class="panel-body">
-            @item.Text
-            @foreach (var im in @item.Images)
+        <div class="panel-heading" style="word-break:break-all;">
+            <div class="row">
+                <div class="col-md-8 pull-left">
+                    @Html.ActionLink('"' + item.Title + '"', "PostTask", "Task", routeValues: new { id = item.Id }, htmlAttributes: new { title = String.Format("Task \"{0}\" view page", item.Title) })
+                    by
+                    @Html.ActionLink(item.User.UserName, "Details", "User", routeValues: new { id = item.User.UserName }, htmlAttributes: new { title = String.Format("{0} account page", item.User.UserName) })
+                    . Posted on @item.UploadDate
+                </div>
+
+                <div class="col-md-4" >
+                    <div class="row">
+                        <div class="col-md-11" align="right">
+                            Tags:
+                            @foreach (var str in item.Tags.Select(obj => obj.Text))
+                            {
+                                <span class="label label-primary">@str</span>
+                            }
+                        </div>
+                        @if(User.IsInRole("Admin"))
+                        { 
+                        <div class="col-md-1">
+                            <button type="button" class="close" data-toggle="tooltip" data-placement="top" title="" data-original-title="Delete"><span aria-hidden="true">&times;</span><span class="sr-only">Delete</span></button>
+                        </div>
+                        }
+                    </div>
+                </div>
+
+                
+            </div>
+
+        </div>
+        <div class="panel-body img-responsive" style="word-break:break-all">
+            <div class="col-md-12 ">
+                @Html.Raw(System.Web.HttpUtility.HtmlDecode(@MarkdownHelper.Markdown(item.Text)))
+            </div>
+            @if (@item.Images.Count != 0)
             {
-                <img src="@im.ImageURL" width="400" class="img-thumbnail" />
+                <button type="button" class="btn btn-default btn-xs" data-toggle="collapse" data-target="#images_@item.Id@item.User.UserName">
+                    <div class="glyphicon glyphicon-paperclip"></div> Show attached images
+                </button>
+                
+                <div id="images_@item.Id@item.User.UserName" class="panel-collapse collapse">
+                    <div class="panel-body">
+                        @Html.Partial("_ShowImagesWithZoom", @item.Images)
+                    </div>
+                </div>
+                @Html.ActionLink("Go to this task", "PostTask", "Task", routeValues: new { id = item.Id }, htmlAttributes: new {@class="btn btn-info btn-xs pull-right", title = String.Format("Task \"{0}\" view page", item.Title) })
             }
         </div>
     </div>

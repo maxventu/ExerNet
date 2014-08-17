@@ -4,9 +4,7 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-
-
-<h3>Account page.</h3>
+<h2>Account page.</h2>
 <hr/>
 <div class="well row">
     <div class="col-md-2">
@@ -18,7 +16,6 @@
         {
             <img class="pic img-circle" src="http://res.cloudinary.com/goodcloud/image/upload/v1407491904/Exernet/blue-user-icon.png" alt="No profile foto found" />
         }
-        
     </div>
     <div class="col-md-4">
         <h2>@Model.UserName</h2>
@@ -36,21 +33,23 @@
                         <h4 class="modal-title" id="myModalLabel">Upload new profile photo</h4>
                     </div>
                     
-                    @using (Html.BeginForm("Details", "User", new { id=@User.Identity.Name}, FormMethod.Post, new { enctype = "multipart/form-data" }))
-                    {
-                        <div class="modal-body">
-                            <form class="form-group">
-                                <fieldset>
-                                    <input type="file" name="fileUpload" accept="image/*" class="btn btn-default" title="Choose image" />
-                                </fieldset>
-                            </form>
-                        </div>
+                    @using (Html.BeginForm("Details", "User", new { id = @User.Identity.Name }, FormMethod.Post, new { enctype = "multipart/form-data" }))
+                        {
+                            <div>
+                                <div class="modal-body">
+                                    <form class="form-group">
+                                        <fieldset>
+                                            <input type="file" name="fileUpload" accept="image/*" class="btn btn-default" title="Choose image" />
+                                        </fieldset>
+                                    </form>
+                                </div>
 
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                            <button type="submit" class="btn btn-primary">Save picture</button>
-                        </div>
-                     }
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                    <input type="submit" class="btn btn-success" value="Save picture" />
+                                </div>
+                            </div>
+                        }
                 </div>
             </div>
         </div>
@@ -80,41 +79,67 @@
 <div class="row">
     @if (@User.Identity.IsAuthenticated && @Model.UserName.Equals(@User.Identity.Name))
     {
-<ul class="nav nav-tabs" style="margin-bottom: 15px;">
-  <li class="active"><a href="#tasks" data-toggle="tab">Tasks</a></li>
-  <li class=""><a href="#solutions" data-toggle="tab">Solutions</a></li>
-</ul>
-<div id="content" class="tab-content">
-    <div class="tab-pane fade active in" id="tasks">
-        <div id="postswrapper">
-            <a id="@Model.UserName"/>
-            @{Html.RenderAction("ViewListOfTasks", "User", new { Model = Model.Tasks });}
-            <div id="loadmoreajaxloader" style="display:none;"><center><img src="~/Scripts/ajax-loader.gif" /></center></div>
-        </div>
-    </div>
-    <div class="tab-pane fade active in" id="solutions">
-        <div id="postswrapper">
-            @foreach (var p in @Model.Solutions)
-                {
-                    <div class="item">
-                    </div>
+        <ul class="nav nav-tabs" role="tablist" style="margin-bottom: 15px;">
+          <li class="active"><a href="#tasks" role="tab" data-toggle="tab">Tasks</a></li>
+          <li class=""><a href="#solutions" role="tab" data-toggle="tab">Solutions</a></li>
+            @if (User.IsInRole("Administrator"))
+            { 
+                <li class=""><a href="#users" role="tab" data-toggle="tab">Users</a></li>
+            }
+        </ul>
+        <div id="content" class="tab-content">
+            <div class="tab-pane fade active in" id="tasks">
+                <div id="postswrapper">
+                    <div id="@Model.UserName"></div>
+                        @if (@Model.Tasks.Count() > 0)
+                        { 
+                            Html.RenderAction("ViewListOfTasks", "User", new { Model = Model.Tasks });
+                        }
+                        else
+                        {
+                            <p>@Html.Raw("You have no tasks yet")</p>
+                        }
+                    <div id="loadmoreajaxloader" style="display:none;"><center><img src="~/Scripts/ajax-loader.gif" /></center></div>
+                </div>
+            </div>
+            <div class="tab-pane fade" id="solutions">
+                @if (@Model.Solutions.Count() > 0) 
+                { 
+                    foreach (var p in @Model.Solutions)
+                    {
+                        <div class="item">
+                        </div>
+                    }
                 }
-            <div id="loadmoreajaxloader" style="display:none;"><center><img src="~/Scripts/ajax-loader.gif" /></center></div>
+                else
+                {
+                    <p>@Html.Raw("You have no solutions yet")</p>
+                }
+            </div>
+            <div class="tab-pane fade" id="users">
+                    bebe
+            </div>
+
         </div>
-    </div>
-</div>
     }
     else 
     { 
         <h2>Tasks</h2>
         <hr/>
         <div class="tab-pane fade active in" id="tasks">
-        <div id="postswrapper">
-            <a id="@Model.UserName"/>
-            @{Html.RenderAction("ViewListOfTasks", "User", new { Model = Model.Tasks });}
-            <div id="loadmoreajaxloader" style="display:none;"><center><img src="~/Scripts/ajax-loader.gif" /></center></div>
+            <div id="postswrapper">
+                <div id="@Model.UserName"/>
+                @if (@Model.Tasks.Count()>0)
+                {
+                    Html.RenderAction("ViewListOfTasks", "User", new { Model = Model.Tasks });
+                }
+                else
+                { 
+                    <p>@Html.Raw("This user have no tasks")</p>
+                }
+                <div id="loadmoreajaxloader" style="display:none;"><center><img src="~/Scripts/ajax-loader.gif" /></center></div>
+            </div>
         </div>
-    </div>
     }
 </div>
 

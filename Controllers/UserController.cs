@@ -78,7 +78,6 @@ namespace Exernet.Controllers
             var public_id = Path.GetFileNameWithoutExtension(imageToDelete);
             DelResParams deleteParams = new DelResParams()
             {
-                
                 PublicIds = new System.Collections.Generic.List<String>() { String.Format(@"Exernet/ProfilePictures/{0}",public_id) },
                 Invalidate = true
             };
@@ -180,7 +179,7 @@ namespace Exernet.Controllers
         {
             var user = UserManager.FindByName(UserName);
             int startIndex = (BlockNumber - 1) * BlockSize;
-            return (from p in user.Tasks select p).Skip(startIndex).Take(BlockSize).ToList();
+            return (from p in user.Tasks.OrderByDescending(obj => obj.UploadDate) select p).Skip(startIndex).Take(BlockSize).ToList();
         }
         [HttpPost]
         public ActionResult InfiniteScroll(string UserName, int BlockNumber)
