@@ -193,14 +193,6 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Code\MarkDownEba.cs" />
-    <Compile Include="Migrations\201408161327283_onemore.cs" />
-    <Compile Include="Migrations\201408161327283_onemore.Designer.cs">
-      <DependentUpon>201408161327283_onemore.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201408171611575_fst.cs" />
-    <Compile Include="Migrations\201408171611575_fst.Designer.cs">
-      <DependentUpon>201408171611575_fst.cs</DependentUpon>
-    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Answer.cs" />
@@ -422,12 +414,6 @@
     <None Include="Project_Readme.html" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201408161327283_onemore.resx">
-      <DependentUpon>201408161327283_onemore.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201408171611575_fst.resx">
-      <DependentUpon>201408171611575_fst.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Resources\Category.en.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Category.en.Designer.cs</LastGenOutput>
