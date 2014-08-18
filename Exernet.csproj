@@ -401,6 +401,7 @@
     <Content Include="Views\Task\Formula.cshtml" />
     <Content Include="Views\Shared\_ShowImagesWithZoom.cshtml" />
     <Content Include="Views\Task\FullTextSearching.cshtml" />
+    <Content Include="Views\User\_AllUsersShort.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

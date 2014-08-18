@@ -131,4 +131,8 @@ namespace Exernet.Models
         public string HTMLString { get; set; }
         public bool NoMoreData { get; set; }
     }
+    public class ShowUserViewModel
+    {
+        public ApplicationUser User { get; set; }
+    }
 }
