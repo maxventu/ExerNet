@@ -375,4 +375,28 @@
   <data name="YouSolve" xml:space="preserve">
     <value>Отлично! Вы решили эту задачу.</value>
   </data>
+  <data name="Account" xml:space="preserve">
+    <value>аккаунт</value>
+  </data>
+  <data name="AssocieteYour" xml:space="preserve">
+    <value>Синхронизируйте свой</value>
+  </data>
+  <data name="Email" xml:space="preserve">
+    <value>Электронная почта</value>
+  </data>
+  <data name="NoSolutions" xml:space="preserve">
+    <value>У этого пользователя нет решений, пока что:)</value>
+  </data>
+  <data name="NoTasks" xml:space="preserve">
+    <value>У этого пользователя нет задач, пока что :)</value>
+  </data>
+  <data name="Tags" xml:space="preserve">
+    <value>Тэги: </value>
+  </data>
+  <data name="Users" xml:space="preserve">
+    <value>Пользователи</value>
+  </data>
+  <data name="ImageFromTask" xml:space="preserve">
+    <value>Изображение из задачи</value>
+  </data>
 </root>
