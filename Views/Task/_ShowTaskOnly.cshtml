@@ -7,15 +7,15 @@
             <div class="row">
                 <div class="col-md-8 pull-left">
                     @Html.ActionLink('"' + item.Title + '"', "PostTask", "Task", routeValues: new { id = item.Id }, htmlAttributes: new { title = String.Format("Task \"{0}\" view page", item.Title) })
-                    by
+                    @Resources.Resource.By
                     @Html.ActionLink(item.User.UserName, "Details", "User", routeValues: new { id = item.User.UserName }, htmlAttributes: new { title = String.Format("{0} account page", item.User.UserName) })
-                    . Posted on @item.UploadDate
+                    . @Resources.Resource.PostedOn @item.UploadDate
                 </div>
 
                 <div class="col-md-4" >
                     <div class="row">
                         <div class="col-md-11" align="right">
-                            Tags:
+                            @Resources.Resource.Tags
                             @foreach (var str in item.Tags.Select(obj => obj.Text))
                             {
                                 <span class="label label-primary">@str</span>

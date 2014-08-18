@@ -79,6 +79,15 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to аккаунт.
+        /// </summary>
+        public static string Account {
+            get {
+                return ResourceManager.GetString("Account", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Страница пользователя.
         /// </summary>
         public static string AccountPage {
@@ -138,6 +147,15 @@ namespace Resources {
         public static string AssociationForm {
             get {
                 return ResourceManager.GetString("AssociationForm", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Синхронизируйте свой.
+        /// </summary>
+        public static string AssocieteYour {
+            get {
+                return ResourceManager.GetString("AssocieteYour", resourceCulture);
             }
         }
         
@@ -304,6 +322,15 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Электронная почта.
+        /// </summary>
+        public static string Email {
+            get {
+                return ResourceManager.GetString("Email", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Ошибка.
         /// </summary>
         public static string Error {
@@ -345,6 +372,15 @@ namespace Resources {
         public static string HomePage {
             get {
                 return ResourceManager.GetString("HomePage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Изображение из задачи.
+        /// </summary>
+        public static string ImageFromTask {
+            get {
+                return ResourceManager.GetString("ImageFromTask", resourceCulture);
             }
         }
         
@@ -480,6 +516,24 @@ namespace Resources {
         public static string NoLocal {
             get {
                 return ResourceManager.GetString("NoLocal", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to У этого пользователя нет решений, пока что:).
+        /// </summary>
+        public static string NoSolutions {
+            get {
+                return ResourceManager.GetString("NoSolutions", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to У этого пользователя нет задач, пока что :).
+        /// </summary>
+        public static string NoTasks {
+            get {
+                return ResourceManager.GetString("NoTasks", resourceCulture);
             }
         }
         
@@ -691,6 +745,15 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Тэги: .
+        /// </summary>
+        public static string Tags {
+            get {
+                return ResourceManager.GetString("Tags", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Тэги?.
         /// </summary>
         public static string TagsPlaceholder {
@@ -804,6 +867,15 @@ namespace Resources {
         public static string UserName {
             get {
                 return ResourceManager.GetString("UserName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Пользователи.
+        /// </summary>
+        public static string Users {
+            get {
+                return ResourceManager.GetString("Users", resourceCulture);
             }
         }
         

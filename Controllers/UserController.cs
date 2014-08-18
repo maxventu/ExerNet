@@ -10,10 +10,12 @@ using System.Web.Mvc;
 using CloudinaryDotNet;
 using CloudinaryDotNet.Actions;
 using System.IO;
+using Exernet.Filters;
 
 namespace Exernet.Controllers
 {
     [Authorize]
+    [Culture]
     public class UserController : Controller
     {
         ApplicationDbContext db = new ApplicationDbContext();

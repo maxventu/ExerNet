@@ -79,11 +79,11 @@
     @if (@User.Identity.IsAuthenticated && @Model.UserName.Equals(@User.Identity.Name))
     {
         <ul class="nav nav-tabs" role="tablist" style="margin-bottom: 15px;">
-          <li class="active"><a href="#tasks" role="tab" data-toggle="tab">Tasks</a></li>
-          <li class=""><a href="#solutions" role="tab" data-toggle="tab">Solutions</a></li>
+          <li class="active"><a href="#tasks" role="tab" data-toggle="tab">@Resources.Resource.Tasks</a></li>
+          <li class=""><a href="#solutions" role="tab" data-toggle="tab">@Resources.Resource.Solutions</a></li>
             @if (User.IsInRole("Administrator"))
             { 
-                <li class=""><a href="#users" role="tab" data-toggle="tab">Users</a></li>
+                <li class=""><a href="#users" role="tab" data-toggle="tab">@Resources.Resource.Users</a></li>
             }
         </ul>
         <div id="content" class="tab-content">
@@ -96,7 +96,7 @@
                         }
                         else
                         {
-                            <p>@Html.Raw("You have no tasks yet")</p>
+                            <p>@Html.Raw(Resources.Resource.NoTasks)</p>
                         }
                     <div id="loadmoreajaxloader" style="display:none;"><center><img src="~/Scripts/ajax-loader.gif" /></center></div>
                 </div>
@@ -112,7 +112,7 @@
                 }
                 else
                 {
-                    <p>@Html.Raw("You have no solutions yet")</p>
+                    <p>@Html.Raw(Resources.Resource.NoSolutions)</p>
                 }
             </div>
             <div class="tab-pane fade" id="users">

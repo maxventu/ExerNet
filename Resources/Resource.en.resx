@@ -123,14 +123,74 @@
   <data name="AboutUs" xml:space="preserve">
     <value>This is Dmitriy Zheltko and Maxim Kalenik's site</value>
   </data>
+  <data name="Account" xml:space="preserve">
+    <value>account</value>
+  </data>
+  <data name="AccountPage" xml:space="preserve">
+    <value>User page</value>
+  </data>
+  <data name="AddImages" xml:space="preserve">
+    <value>Add images.</value>
+  </data>
+  <data name="AddMoreImage" xml:space="preserve">
+    <value>Add one more image</value>
+  </data>
+  <data name="AnotherService" xml:space="preserve">
+    <value>Use another service to log in.</value>
+  </data>
+  <data name="AnswerNeed" xml:space="preserve">
+    <value>Answer field is required</value>
+  </data>
+  <data name="AnswersPlaceholder" xml:space="preserve">
+    <value>Answers?</value>
+  </data>
+  <data name="AssociationForm" xml:space="preserve">
+    <value>Register form.</value>
+  </data>
+  <data name="AssocieteYour" xml:space="preserve">
+    <value>Associete your</value>
+  </data>
+  <data name="By" xml:space="preserve">
+    <value>by</value>
+  </data>
+  <data name="ChangePassword" xml:space="preserve">
+    <value>Change Password</value>
+  </data>
+  <data name="ChangePasswordForm" xml:space="preserve">
+    <value>Change Password Form</value>
+  </data>
+  <data name="ChangeProfilePicture" xml:space="preserve">
+    <value>Change Photo</value>
+  </data>
   <data name="ChooseLang" xml:space="preserve">
     <value>Language</value>
+  </data>
+  <data name="Close" xml:space="preserve">
+    <value>Close</value>
+  </data>
+  <data name="ConfirmationPasswordWrong" xml:space="preserve">
+    <value>Passwords are different</value>
+  </data>
+  <data name="ConfirmNewPassword" xml:space="preserve">
+    <value>Confirm New Password</value>
+  </data>
+  <data name="ConfirmPassword" xml:space="preserve">
+    <value>Confirm Password</value>
   </data>
   <data name="Contact" xml:space="preserve">
     <value>Contact</value>
   </data>
   <data name="Country" xml:space="preserve">
     <value>Country</value>
+  </data>
+  <data name="CreateLocalLogin" xml:space="preserve">
+    <value>Create Local Account</value>
+  </data>
+  <data name="CreateTask" xml:space="preserve">
+    <value>Create Task</value>
+  </data>
+  <data name="CurrentPassword" xml:space="preserve">
+    <value>Current Password</value>
   </data>
   <data name="Developer" xml:space="preserve">
     <value>Developer</value>
@@ -140,6 +200,12 @@
   </data>
   <data name="Developery" xml:space="preserve">
     <value>Maxim Kalenik</value>
+  </data>
+  <data name="Edit" xml:space="preserve">
+    <value>Edit</value>
+  </data>
+  <data name="Email" xml:space="preserve">
+    <value>E-mail</value>
   </data>
   <data name="Error" xml:space="preserve">
     <value>Error</value>
@@ -159,11 +225,26 @@
   <data name="InvalidData" xml:space="preserve">
     <value>Invalid username or password.</value>
   </data>
+  <data name="LeaveComment" xml:space="preserve">
+    <value>Leave a comment</value>
+  </data>
+  <data name="LoggedAs" xml:space="preserve">
+    <value>You are logged as</value>
+  </data>
   <data name="LogIn" xml:space="preserve">
     <value>Log In</value>
   </data>
+  <data name="LoginFailure" xml:space="preserve">
+    <value>Login failure</value>
+  </data>
   <data name="LogOff" xml:space="preserve">
     <value>LogOff</value>
+  </data>
+  <data name="ManagaAccount" xml:space="preserve">
+    <value>Manage account</value>
+  </data>
+  <data name="MinimalLenght" xml:space="preserve">
+    <value>Minimal lenght {0} must be at least {2}.</value>
   </data>
   <data name="Name" xml:space="preserve">
     <value>Name</value>
@@ -171,17 +252,110 @@
   <data name="NameRequired" xml:space="preserve">
     <value>The field "Name" must be filled</value>
   </data>
+  <data name="NeedTitle" xml:space="preserve">
+    <value>Title required</value>
+  </data>
+  <data name="NewAccount" xml:space="preserve">
+    <value>Create New Account</value>
+  </data>
+  <data name="NewPasssword" xml:space="preserve">
+    <value>New Password</value>
+  </data>
+  <data name="NoExternalAuth" xml:space="preserve">
+    <value>Log in with another services</value>
+  </data>
+  <data name="NoLocal" xml:space="preserve">
+    <value>if y haven't local account.</value>
+  </data>
+  <data name="NoSolutions" xml:space="preserve">
+    <value>This user haven't solutions yet.</value>
+  </data>
+  <data name="NoTasks" xml:space="preserve">
+    <value>This user haven't tasks yet.</value>
+  </data>
+  <data name="NumberOfTry" xml:space="preserve">
+    <value>Number of trys to solve tasks</value>
+  </data>
+  <data name="NumberOfUploadTasks" xml:space="preserve">
+    <value>Number of loaded tasks</value>
+  </data>
+  <data name="OldPassword" xml:space="preserve">
+    <value>Old Password</value>
+  </data>
+  <data name="Password" xml:space="preserve">
+    <value>Password</value>
+  </data>
   <data name="PasswordChanged" xml:space="preserve">
     <value>Your password has been changed.</value>
   </data>
   <data name="PasswordSet" xml:space="preserve">
     <value>Your password has been set.</value>
   </data>
+  <data name="PleaseEnterEmail" xml:space="preserve">
+    <value>Please enter your e-mail below and click submit button</value>
+  </data>
+  <data name="PostedOn" xml:space="preserve">
+    <value>Posted on</value>
+  </data>
+  <data name="Rating" xml:space="preserve">
+    <value>Rating</value>
+  </data>
+  <data name="Register" xml:space="preserve">
+    <value>Register</value>
+  </data>
+  <data name="RegisteredLogins" xml:space="preserve">
+    <value>Registeres Users</value>
+  </data>
   <data name="Registration" xml:space="preserve">
     <value>Registation</value>
   </data>
+  <data name="RememberMe" xml:space="preserve">
+    <value>Remember me?</value>
+  </data>
+  <data name="Remove" xml:space="preserve">
+    <value>Remove</value>
+  </data>
+  <data name="RemoveThisPart2" xml:space="preserve">
+    <value>login from your account.</value>
+  </data>
+  <data name="SavePicture" xml:space="preserve">
+    <value>Save picture</value>
+  </data>
+  <data name="SetPassword" xml:space="preserve">
+    <value>Save Password</value>
+  </data>
+  <data name="Solutions" xml:space="preserve">
+    <value>Solutions</value>
+  </data>
+  <data name="Solved" xml:space="preserve">
+    <value>You already solved this task</value>
+  </data>
+  <data name="SolvedTasks" xml:space="preserve">
+    <value>Solved tasks</value>
+  </data>
+  <data name="Submit" xml:space="preserve">
+    <value>Submit</value>
+  </data>
+  <data name="SuccesfullyAuth" xml:space="preserve">
+    <value>You succesfully authentificate as</value>
+  </data>
+  <data name="TagNeed" xml:space="preserve">
+    <value>Tag is required</value>
+  </data>
+  <data name="TagsPlaceholder" xml:space="preserve">
+    <value>Tags?</value>
+  </data>
+  <data name="Tasks" xml:space="preserve">
+    <value>Tasks</value>
+  </data>
+  <data name="TaskTextNeed" xml:space="preserve">
+    <value>Task description is requred</value>
+  </data>
   <data name="Theme" xml:space="preserve">
     <value>Theme</value>
+  </data>
+  <data name="Theme1" xml:space="preserve">
+    <value>Styles</value>
   </data>
   <data name="ThemeColored" xml:space="preserve">
     <value>Amelia</value>
@@ -194,5 +368,38 @@
   </data>
   <data name="TitlePlaceholder" xml:space="preserve">
     <value>Title?</value>
+  </data>
+  <data name="TryToSolve" xml:space="preserve">
+    <value>Try to solve</value>
+  </data>
+  <data name="UnsuccesufyLogin" xml:space="preserve">
+    <value>Unsoccesfully login with another service.</value>
+  </data>
+  <data name="UploadNewPhoto" xml:space="preserve">
+    <value>Upload new picture</value>
+  </data>
+  <data name="UseLocalLogin" xml:space="preserve">
+    <value>Use local account for login.</value>
+  </data>
+  <data name="UserName" xml:space="preserve">
+    <value>User Name</value>
+  </data>
+  <data name="Users" xml:space="preserve">
+    <value>Users</value>
+  </data>
+  <data name="VideosPlaceholder" xml:space="preserve">
+    <value>Video?</value>
+  </data>
+  <data name="WrongSolve" xml:space="preserve">
+    <value>Sorry! Your solution is wrong.</value>
+  </data>
+  <data name="YouSolve" xml:space="preserve">
+    <value>Well done! You solved this task.</value>
+  </data>
+  <data name="Tags" xml:space="preserve">
+    <value>Tags: </value>
+  </data>
+  <data name="ImageFromTask" xml:space="preserve">
+    <value>Image from task</value>
   </data>
 </root>
