@@ -33,13 +33,5 @@ namespace Exernet.Models
         public DbSet<Comment> Comments { get; set; }
         public DbSet<Solution> Solutions { get; set; }
         public DbSet<Answer> Answers { get; set; }
-
-        //protected override void OnModelCreating(DbModelBuilder modelBuilder)
-        //{
-        //    modelBuilder.Entity<ExernetTask>()
-        //        .HasOptional(a => a.Comments)
-        //        .WithOptionalDependent()
-        //        .WillCascadeOnDelete(true);
-        //}
     }
 }
