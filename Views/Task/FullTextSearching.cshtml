@@ -1,3 +1,11 @@
-﻿@model IQueryable<Exernet.Models.ExernetTask>
+﻿@model List<Exernet.Models.ExernetTask>
 
-@Model.First().Text
+@{
+    ViewBag.Title = "FullTextSearching";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="row">
+        <h2>Search Results for @ViewBag.SearchText</h2>
+        @{Html.RenderPartial("/Views/Task/_ShowTaskOnly.cshtml", Model);}
+</div>

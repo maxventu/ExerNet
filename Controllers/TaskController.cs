@@ -12,6 +12,8 @@ using Exernet.Filters;
 using CloudinaryDotNet;
 using CloudinaryDotNet.Actions;
 using System.Text.RegularExpressions;
+using Exernet.Code;
+using Exernet.Search;
 
 namespace Exernet.Controllers
 {
@@ -19,6 +21,8 @@ namespace Exernet.Controllers
     public class TaskController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
+
+
         [HttpGet]
         public ActionResult CreateTask(String input)
         {
@@ -161,7 +165,8 @@ namespace Exernet.Controllers
 
         public ActionResult PostTask(int id)
         {
-
+            
+            
             var task = new ExernetTask();
             task = db.Tasks.Find(id);
 
@@ -184,19 +189,26 @@ namespace Exernet.Controllers
             return View(task);
         }
 
-        private string GenerateStringVideosForTaskModel(ICollection<Video> collection)
+        private static string GenerateStringVideosForTaskModel(ICollection<Video> collection)
         {
             string stringOfVideos = string.Join("; ", collection.Select(obj => obj.VideoURL));
             return stringOfVideos;
         }
 
-        private string GenerateStringAnswersForTaskModel(ICollection<Answer> collection)
+        private static string GenerateStringAnswersForTaskModel(ICollection<Answer> collection)
         {
             string stringOfAnswers = string.Join("; ", collection.Select(obj => obj.Text));
             return stringOfAnswers;
         }
 
-        private string GenerateStringTagsForTaskModel(ICollection<Tag> collection)
+        public static string GenerateStringTagsForTaskModel(ICollection<Tag> collection)
+        {
+            string stringOfTags = string.Join(", ", collection.Select(obj => obj.Text));
+
+            return stringOfTags;
+        }
+
+        public static string GenerateStringCommentsForTaskModel(ICollection<Comment> collection)
         {
             string stringOfTags = string.Join(", ", collection.Select(obj => obj.Text));
 
@@ -335,6 +347,7 @@ namespace Exernet.Controllers
             db.SaveChanges();
             var c = db.Comments.Include("User").FirstOrDefault(obj => obj.Id == comment.Id);
 
+            
             return PartialView("Comment", c);
         }
 
@@ -351,8 +364,27 @@ namespace Exernet.Controllers
 
         public ActionResult FullTextSearching(string searchText) 
         {
-           
-            return View();
+            LuceneSearch.ClearLuceneIndex();
+            LuceneSearch.AddUpdateLuceneIndex(db.Tasks.Where(obj => obj.Id > 0));
+
+            var result = LuceneSearch.Search(searchText);
+            var results = new List<ExernetTask>();
+            foreach (var task in result)
+            {
+                results.Add(db.Tasks.First(obj => obj.Id == task.Id));
+            }
+            results = results.OrderByDescending(obj => obj.UploadDate).ToList();
+
+            ViewBag.SearchText = searchText;
+            return View(results);
+        }
+
+        public ActionResult ShowTags(string tag)
+        {
+            var results = db.Tasks.OrderByDescending(x => x.UploadDate).Where(obj => obj.Tags.FirstOrDefault(t => t.Text.Equals(tag)) != null);
+
+            ViewBag.TagSearch = tag;
+            return View(results.ToList());
         }
     }
 }

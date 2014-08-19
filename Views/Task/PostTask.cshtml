@@ -24,7 +24,7 @@
                     <div class="col-md-4" align="right">
                         @foreach (var str in Model.Tags.Select(obj => obj.Text))
                         {
-                            <span class="label label-primary">@str</span>
+                            <a href="http://localhost:54084/Task/ShowTags?tag=@str" class="label label-primary">@str</a>
                         }
                     </div>
                 </div>
@@ -52,14 +52,14 @@
                         @Ajax.ActionLink(" ", "SetLike", new { id = Model.Id, likeState = false }, new AjaxOptions { UpdateTargetId = "SetLike" }, new { @class = "glyphicon glyphicon-thumbs-down" })
                     </div>
                 </div>
-                <hr/>
+                <hr />
 
                 <div class="row">
-                    <div class="col-md-12 img img-responsive"  style="word-break: break-all; width:inherit">
+                    <div class="col-md-12 img img-responsive" style="word-break: break-all; width:inherit">
                         <p class="img-responsive">@Html.Raw(System.Web.HttpUtility.HtmlDecode(@MarkdownHelper.Markdown(Model.Text)))</p>
                     </div>
                 </div>
-                <hr/>
+                <hr />
 
                 @if (Model.Videos.Count > 0)
                 {
@@ -67,16 +67,16 @@
                         @foreach (var str in Model.Videos.Select(obj => obj.VideoURL))
                         {
                             <iframe class="embed-responsive-item" src=@str frameborder="0" allowfullscreen></iframe>
-                        
+
                         }
                     </div>
-                    <hr/>
+                    <hr />
                 }
                 <div class="row form-group">
                     @Html.Partial("_ShowImagesWithZoom", Model.Images)
                 </div>
                 <hr>
-                <div class=" form-group" >
+                <div class=" form-group">
                     @Html.Action("CheckSolve", "Task", new { id = Model.Id })
                 </div>
                 @using (Ajax.BeginForm("LeaveComment", new { id = Model.Id }, new AjaxOptions
@@ -102,7 +102,7 @@
                     </a>
                 </div>
 
-                @foreach (var comment in Model.Comments)
+                @foreach (var comment in Model.Comments.OrderByDescending(obj => obj.Date))
                 {
                     Html.RenderPartial("/Views/Task/Comment.cshtml", comment);
                 }

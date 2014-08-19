@@ -1,6 +1,9 @@
-﻿using Microsoft.AspNet.Identity.EntityFramework;
+﻿using Exernet.Code;
+using Microsoft.AspNet.Identity.EntityFramework;
 using System.Collections.Generic;
 using System.Data.Entity;
+using System.Data.Entity.Infrastructure.Interception;
+using System.Data.Entity.ModelConfiguration;
 
 namespace Exernet.Models
 {
@@ -21,6 +24,7 @@ namespace Exernet.Models
         public ApplicationDbContext()
             : base("DefaultConnection")
         {
+            
         }
         public DbSet<ExernetTask> Tasks { get; set; }
         public DbSet<Tag> Tags { get; set; }
@@ -32,5 +36,9 @@ namespace Exernet.Models
         public DbSet<Comment> Comments { get; set; }
         public DbSet<Solution> Solutions { get; set; }
         public DbSet<Answer> Answers { get; set; }
+
+
     }
+
+   
 }

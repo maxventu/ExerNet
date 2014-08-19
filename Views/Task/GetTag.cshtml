@@ -38,10 +38,10 @@
         @{ var size = (float)Model.Count()*40;}
 
         @foreach (Exernet.Models.Tag tag in Model)
-        {
-            <a href="#" style="font-size: @(size)%">@tag.Text</a>
-            size =  size - 30;
-        }
+{
+    <a href="http://localhost:54084/Task/ShowTags?tag=@tag.Text" style="font-size: @(size)%">@tag.Text</a>
+    size = size - 30;
+}
 
 
         

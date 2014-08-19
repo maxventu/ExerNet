@@ -18,7 +18,7 @@
                             @Resources.Resource.Tags
                             @foreach (var str in item.Tags.Select(obj => obj.Text))
                             {
-                                <span class="label label-primary">@str</span>
+                               <a href="http://localhost:54084/Task/ShowTags?tag=@str" class="label label-primary">@str</a>
                             }
                         </div>
                         @if(User.IsInRole("Admin"))
