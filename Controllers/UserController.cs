@@ -160,29 +160,32 @@ namespace Exernet.Controllers
         //
         // POST: /User/Delete/5
         [HttpPost]
-        public ActionResult Delete(int id, FormCollection collection)
+        public JsonResult Delete(string id)
         {
             try
             {
-                // TODO: Add delete logic here
-
-                return RedirectToAction("Index");
+                var user = UserManager.FindByName(id);
+                UserManager.Delete(user);
+                return new JsonResult() { Data = id };
             }
             catch
             {
-                return View();
+                return null;
             }
         }
+
         public ActionResult ViewListOfTasks(IEnumerable<ExernetTask> Model) {
             var list = Model.ToList();
             return PartialView("~/Views/Task/_ShowTaskOnly.cshtml",list);
         }
+
         public List<ExernetTask> GetFewTasksForPartialView(string UserName, int BlockNumber, int BlockSize)
         {
             var user = UserManager.FindByName(UserName);
             int startIndex = (BlockNumber - 1) * BlockSize;
             return (from p in user.Tasks.OrderByDescending(obj => obj.UploadDate) select p).Skip(startIndex).Take(BlockSize).ToList();
         }
+
         [HttpPost]
         public ActionResult InfiniteScroll(string UserName, int BlockNumber)
         {
@@ -208,6 +211,18 @@ namespace Exernet.Controllers
 
                 return sw.GetStringBuilder().ToString();
             }
-        } 
+        }
+
+        public ActionResult ShowUsers() 
+        {
+            if (!User.IsInRole("Administrator")) return null;
+            var users = UserManager.Users.ToArray() ;
+            foreach (var user in users) 
+            {
+                user.IsAdmin = UserManager.IsInRole(user.Id,"Administrator");
+            }
+            return PartialView("~/Views/User/_AllUsersShort.cshtml",
+                users);
+        }
     }
 }

@@ -121,7 +121,7 @@
     <value>О нас</value>
   </data>
   <data name="AboutUs" xml:space="preserve">
-    <value>Это сайт Дмитрий Желтко и Максима Каленика</value>
+    <value>Это сайт Дмитрия Желтко и Максима Каленика</value>
   </data>
   <data name="AccountPage" xml:space="preserve">
     <value>Страница пользователя</value>
@@ -145,7 +145,7 @@
     <value>Форма регистрации</value>
   </data>
   <data name="By" xml:space="preserve">
-    <value>Создал</value>
+    <value>cоздал</value>
   </data>
   <data name="ChangePassword" xml:space="preserve">
     <value>Изменить пароль</value>
@@ -175,13 +175,13 @@
     <value>Контакты</value>
   </data>
   <data name="Country" xml:space="preserve">
-    <value>Country</value>
+    <value>Страна</value>
   </data>
   <data name="CreateLocalLogin" xml:space="preserve">
     <value>Создайте аккаунт</value>
   </data>
   <data name="CreateTask" xml:space="preserve">
-    <value>Предложите свою задачу</value>
+    <value>Создать задачу</value>
   </data>
   <data name="CurrentPassword" xml:space="preserve">
     <value>Существующий пароль</value>
@@ -384,11 +384,11 @@
   <data name="Email" xml:space="preserve">
     <value>Электронная почта</value>
   </data>
-  <data name="NoSolutions" xml:space="preserve">
-    <value>У этого пользователя нет решений, пока что:)</value>
+  <data name="NoYourSolutions" xml:space="preserve">
+    <value>У вас пока что нет решений.</value>
   </data>
   <data name="NoTasks" xml:space="preserve">
-    <value>У этого пользователя нет задач, пока что :)</value>
+    <value>У этого пользователя нет задач.</value>
   </data>
   <data name="Tags" xml:space="preserve">
     <value>Тэги: </value>
@@ -398,5 +398,26 @@
   </data>
   <data name="ImageFromTask" xml:space="preserve">
     <value>Изображение из задачи</value>
+  </data>
+  <data name="NoYourTasks" xml:space="preserve">
+    <value>У вас пока что нет задач.</value>
+  </data>
+  <data name="AccountPg" xml:space="preserve">
+    <value>страница аккаунта</value>
+  </data>
+  <data name="GoToThisTask" xml:space="preserve">
+    <value>Перейти к задаче</value>
+  </data>
+  <data name="ShowAttachedImages" xml:space="preserve">
+    <value>Показать прикрепленные изображения</value>
+  </data>
+  <data name="Administrator" xml:space="preserve">
+    <value>Администратор</value>
+  </data>
+  <data name="User" xml:space="preserve">
+    <value>Пользователь</value>
+  </data>
+  <data name="UserBlocked" xml:space="preserve">
+    <value>Аккаунт заблокирован до</value>
   </data>
 </root>

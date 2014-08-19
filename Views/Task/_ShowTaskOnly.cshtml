@@ -1,14 +1,14 @@
 ﻿@using Microsoft.AspNet.Identity
 @model List<Exernet.Models.ExernetTask>
 @foreach(var item in Model){
-    <div class="item col-md-12">
+    <div class="item col-md-12" id="element_@item.Id">
     <div class="panel panel-default">
         <div class="panel-heading" style="word-break:break-all;">
             <div class="row">
                 <div class="col-md-8 pull-left">
                     @Html.ActionLink('"' + item.Title + '"', "PostTask", "Task", routeValues: new { id = item.Id }, htmlAttributes: new { title = String.Format("Task \"{0}\" view page", item.Title) })
                     @Resources.Resource.By
-                    @Html.ActionLink(item.User.UserName, "Details", "User", routeValues: new { id = item.User.UserName }, htmlAttributes: new { title = String.Format("{0} account page", item.User.UserName) })
+                    @Html.ActionLink(item.User.UserName, "Details", "User", routeValues: new { id = item.User.UserName }, htmlAttributes: new { title = String.Format(@Resources.Resource.AccountPg+" \"{0}\"", item.User.UserName) })
                     . @Resources.Resource.PostedOn @item.UploadDate
                 </div>
 
@@ -21,10 +21,10 @@
                                 <span class="label label-primary">@str</span>
                             }
                         </div>
-                        @if(User.IsInRole("Admin"))
+                        @if(User.IsInRole("Administrator"))
                         { 
                         <div class="col-md-1">
-                            <button type="button" class="close" data-toggle="tooltip" data-placement="top" title="" data-original-title="Delete"><span aria-hidden="true">&times;</span><span class="sr-only">Delete</span></button>
+                            <button type="button" class="close delete" id="@item.Id" name="delete"  data-toggle="tooltip" data-placement="top" title="Delete"><span aria-hidden="true">&times;</span><span class="sr-only">Delete</span></button>
                         </div>
                         }
                     </div>
@@ -41,7 +41,7 @@
             @if (@item.Images.Count != 0)
             {
                 <button type="button" class="btn btn-default btn-xs" data-toggle="collapse" data-target="#images_@item.Id@item.User.UserName">
-                    <div class="glyphicon glyphicon-paperclip"></div> Show attached images
+                    <div class="glyphicon glyphicon-paperclip"></div> @Resources.Resource.ShowAttachedImages
                 </button>
                 
                 <div id="images_@item.Id@item.User.UserName" class="panel-collapse collapse">
@@ -49,9 +49,26 @@
                         @Html.Partial("_ShowImagesWithZoom", @item.Images)
                     </div>
                 </div>
-                @Html.ActionLink("Go to this task", "PostTask", "Task", routeValues: new { id = item.Id }, htmlAttributes: new {@class="btn btn-info btn-xs pull-right", title = String.Format("Task \"{0}\" view page", item.Title) })
+                @Html.ActionLink(@Resources.Resource.GoToThisTask, "PostTask", "Task", routeValues: new { id = item.Id }, htmlAttributes: new {@class="btn btn-info btn-xs pull-right", title = String.Format("Task \"{0}\" view page", item.Title) })
             }
         </div>
     </div>
 </div>
 }
+<script type="text/javascript">
+    $(".delete").click(function () {
+        var id = $(this).attr("id");
+        $.ajax({
+            url: "http://localhost:54084/Task/DeleteTask",
+            dataType: "json",
+            type: "POST",
+            data: { id: id },
+            success: function (data) {
+                $("#element_" + data).remove();
+            },
+            error: function (e) {
+                alert("cannot delete this task");
+            }
+        });
+    });
+</script>

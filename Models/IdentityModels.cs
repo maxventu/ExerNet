@@ -9,6 +9,7 @@ namespace Exernet.Models
     {
         public int Rating { get; set; }
         public string ProfileFotoURL { get; set; }
+        public bool IsAdmin { get; set; }
         public virtual ICollection<Solution> Solutions { get; set; }
         public virtual ICollection<ExernetTask> Tasks { get; set; }
         public virtual ICollection<Like> Likes { get; set; }
@@ -32,5 +33,13 @@ namespace Exernet.Models
         public DbSet<Comment> Comments { get; set; }
         public DbSet<Solution> Solutions { get; set; }
         public DbSet<Answer> Answers { get; set; }
+
+        //protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        //{
+        //    modelBuilder.Entity<ExernetTask>()
+        //        .HasOptional(a => a.Comments)
+        //        .WithOptionalDependent()
+        //        .WillCascadeOnDelete(true);
+        //}
     }
 }

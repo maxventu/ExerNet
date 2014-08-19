@@ -131,8 +131,8 @@ namespace Exernet.Models
         public string HTMLString { get; set; }
         public bool NoMoreData { get; set; }
     }
-    public class ShowUserViewModel
-    {
-        public ApplicationUser User { get; set; }
-    }
+    //public class UsersViewModel
+    //{
+    //    public IEnumerable<ApplicationUser> Users { get; set; }
+    //}
 }
