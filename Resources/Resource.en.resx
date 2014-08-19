@@ -154,13 +154,13 @@
     <value>by</value>
   </data>
   <data name="ChangePassword" xml:space="preserve">
-    <value>Change Password</value>
+    <value>Change password</value>
   </data>
   <data name="ChangePasswordForm" xml:space="preserve">
-    <value>Change Password Form</value>
+    <value>Change password form</value>
   </data>
   <data name="ChangeProfilePicture" xml:space="preserve">
-    <value>Change Photo</value>
+    <value>Change photo</value>
   </data>
   <data name="ChooseLang" xml:space="preserve">
     <value>Language</value>
@@ -172,10 +172,10 @@
     <value>Passwords are different</value>
   </data>
   <data name="ConfirmNewPassword" xml:space="preserve">
-    <value>Confirm New Password</value>
+    <value>Confirm new password</value>
   </data>
   <data name="ConfirmPassword" xml:space="preserve">
-    <value>Confirm Password</value>
+    <value>Confirm password</value>
   </data>
   <data name="Contact" xml:space="preserve">
     <value>Contact</value>
@@ -184,13 +184,13 @@
     <value>Country</value>
   </data>
   <data name="CreateLocalLogin" xml:space="preserve">
-    <value>Create Local Account</value>
+    <value>Create local account</value>
   </data>
   <data name="CreateTask" xml:space="preserve">
-    <value>Create Task</value>
+    <value>Create task</value>
   </data>
   <data name="CurrentPassword" xml:space="preserve">
-    <value>Current Password</value>
+    <value>Current password</value>
   </data>
   <data name="Developer" xml:space="preserve">
     <value>Developer</value>
@@ -256,10 +256,10 @@
     <value>Title required</value>
   </data>
   <data name="NewAccount" xml:space="preserve">
-    <value>Create New Account</value>
+    <value>Create new account</value>
   </data>
   <data name="NewPasssword" xml:space="preserve">
-    <value>New Password</value>
+    <value>New password</value>
   </data>
   <data name="NoExternalAuth" xml:space="preserve">
     <value>Log in with another services</value>
@@ -267,11 +267,11 @@
   <data name="NoLocal" xml:space="preserve">
     <value>if y haven't local account.</value>
   </data>
-  <data name="NoSolutions" xml:space="preserve">
-    <value>This user haven't solutions yet.</value>
+  <data name="NoYourSolutions" xml:space="preserve">
+    <value>You have no solutions yet.</value>
   </data>
   <data name="NoTasks" xml:space="preserve">
-    <value>This user haven't tasks yet.</value>
+    <value>This user hasn't tasks yet.</value>
   </data>
   <data name="NumberOfTry" xml:space="preserve">
     <value>Number of trys to solve tasks</value>
@@ -280,7 +280,7 @@
     <value>Number of loaded tasks</value>
   </data>
   <data name="OldPassword" xml:space="preserve">
-    <value>Old Password</value>
+    <value>Old password</value>
   </data>
   <data name="Password" xml:space="preserve">
     <value>Password</value>
@@ -304,7 +304,7 @@
     <value>Register</value>
   </data>
   <data name="RegisteredLogins" xml:space="preserve">
-    <value>Registeres Users</value>
+    <value>Registeres users</value>
   </data>
   <data name="Registration" xml:space="preserve">
     <value>Registation</value>
@@ -322,7 +322,7 @@
     <value>Save picture</value>
   </data>
   <data name="SetPassword" xml:space="preserve">
-    <value>Save Password</value>
+    <value>Save password</value>
   </data>
   <data name="Solutions" xml:space="preserve">
     <value>Solutions</value>
@@ -382,7 +382,7 @@
     <value>Use local account for login.</value>
   </data>
   <data name="UserName" xml:space="preserve">
-    <value>User Name</value>
+    <value>Username</value>
   </data>
   <data name="Users" xml:space="preserve">
     <value>Users</value>
@@ -401,5 +401,29 @@
   </data>
   <data name="ImageFromTask" xml:space="preserve">
     <value>Image from task</value>
+  </data>
+  <data name="NoYourTasks" xml:space="preserve">
+    <value>You have no tasks yet.</value>
+  </data>
+  <data name="AccountPg" xml:space="preserve">
+    <value>account page of</value>
+  </data>
+  <data name="GoToThisTask" xml:space="preserve">
+    <value>Go to this task</value>
+  </data>
+  <data name="q" xml:space="preserve">
+    <value />
+  </data>
+  <data name="ShowAttachedImages" xml:space="preserve">
+    <value>Show attached images</value>
+  </data>
+  <data name="UserBlocked" xml:space="preserve">
+    <value>User is blocked before</value>
+  </data>
+  <data name="Administrator" xml:space="preserve">
+    <value>Administrator</value>
+  </data>
+  <data name="User" xml:space="preserve">
+    <value>User</value>
   </data>
 </root>

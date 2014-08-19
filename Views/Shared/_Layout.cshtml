@@ -37,7 +37,7 @@
                 <ul class="nav navbar-nav">
                     <li>@Html.ActionLink(@Resources.Resource.About, "About", "Home")</li>
                     <li>@Html.ActionLink(@Resources.Resource.Contact, "Contact", "Home")</li>
-                    <li>@Html.ActionLink("CreateTask", "CreateTask", "Task")</li>
+                    <li>@Html.ActionLink(@Resources.Resource.CreateTask, "CreateTask", "Task")</li>
                     <li>@Html.ActionLink("Post", "PostTask/67", "Task")</li>
                 </ul>
                 @using (Html.BeginForm("FullTextSearching", "Task", FormMethod.Post, new { @class = "navbar-form navbar-left" }))

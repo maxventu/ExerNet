@@ -169,8 +169,6 @@ namespace Exernet.Controllers
             
             var task = new ExernetTask();
             task = db.Tasks.Find(id);
-
-
             return View(task);
         }
 
@@ -385,6 +383,34 @@ namespace Exernet.Controllers
 
             ViewBag.TagSearch = tag;
             return View(results.ToList());
+        }
+
+        [HttpPost]
+        public JsonResult DeleteTask(string id)
+        {
+            var tsk = db.Tasks.Find(Int32.Parse(id));
+            if (tsk != null)
+            {
+                ClearTask(tsk);
+                db.Tasks.Remove(tsk);
+                db.Entry(tsk).State = EntityState.Deleted;
+                db.SaveChanges();
+                return new JsonResult() { Data = id };
+            }
+            else return null;
+        }
+
+        private void ClearTask(ExernetTask tsk)
+        {
+            tsk.Answers.Clear();
+            tsk.Charts.Clear();
+            tsk.Comments.Clear();
+            tsk.Formulas.Clear();
+            tsk.Images.Clear();
+            tsk.Likes.Clear();
+            tsk.Solutions.Clear();
+            tsk.Tags.Clear();
+            tsk.Videos.Clear();
         }
     }
 }

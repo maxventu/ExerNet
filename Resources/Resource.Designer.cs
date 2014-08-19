@@ -70,7 +70,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Это сайт Дмитрий Желтко и Максима Каленика.
+        ///   Looks up a localized string similar to Это сайт Дмитрия Желтко и Максима Каленика.
         /// </summary>
         public static string AboutUs {
             get {
@@ -97,6 +97,15 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to страница аккаунта.
+        /// </summary>
+        public static string AccountPg {
+            get {
+                return ResourceManager.GetString("AccountPg", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Добавьте изображения..
         /// </summary>
         public static string AddImages {
@@ -111,6 +120,15 @@ namespace Resources {
         public static string AddMoreImage {
             get {
                 return ResourceManager.GetString("AddMoreImage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Администратор.
+        /// </summary>
+        public static string Administrator {
+            get {
+                return ResourceManager.GetString("Administrator", resourceCulture);
             }
         }
         
@@ -160,7 +178,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Создал.
+        ///   Looks up a localized string similar to cоздал.
         /// </summary>
         public static string By {
             get {
@@ -250,7 +268,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Country.
+        ///   Looks up a localized string similar to Страна.
         /// </summary>
         public static string Country {
             get {
@@ -268,7 +286,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Предложите свою задачу.
+        ///   Looks up a localized string similar to Создать задачу.
         /// </summary>
         public static string CreateTask {
             get {
@@ -363,6 +381,15 @@ namespace Resources {
         public static string ExternalLoginRemoved {
             get {
                 return ResourceManager.GetString("ExternalLoginRemoved", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Перейти к задаче.
+        /// </summary>
+        public static string GoToThisTask {
+            get {
+                return ResourceManager.GetString("GoToThisTask", resourceCulture);
             }
         }
         
@@ -520,20 +547,29 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to У этого пользователя нет решений, пока что:).
-        /// </summary>
-        public static string NoSolutions {
-            get {
-                return ResourceManager.GetString("NoSolutions", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to У этого пользователя нет задач, пока что :).
+        ///   Looks up a localized string similar to У этого пользователя нет задач..
         /// </summary>
         public static string NoTasks {
             get {
                 return ResourceManager.GetString("NoTasks", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to У вас пока что нет решений..
+        /// </summary>
+        public static string NoYourSolutions {
+            get {
+                return ResourceManager.GetString("NoYourSolutions", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to У вас пока что нет задач..
+        /// </summary>
+        public static string NoYourTasks {
+            get {
+                return ResourceManager.GetString("NoYourTasks", resourceCulture);
             }
         }
         
@@ -687,6 +723,15 @@ namespace Resources {
         public static string SetPassword {
             get {
                 return ResourceManager.GetString("SetPassword", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Показать прикрепленные изображения.
+        /// </summary>
+        public static string ShowAttachedImages {
+            get {
+                return ResourceManager.GetString("ShowAttachedImages", resourceCulture);
             }
         }
         
@@ -858,6 +903,24 @@ namespace Resources {
         public static string UseLocalLogin {
             get {
                 return ResourceManager.GetString("UseLocalLogin", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Пользователь.
+        /// </summary>
+        public static string User {
+            get {
+                return ResourceManager.GetString("User", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Аккаунт заблокирован до.
+        /// </summary>
+        public static string UserBlocked {
+            get {
+                return ResourceManager.GetString("UserBlocked", resourceCulture);
             }
         }
         
